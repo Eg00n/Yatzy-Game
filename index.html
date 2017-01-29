@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<header>
+		<title>Yatzy Game</title>
+		<link rel="stylesheet" type="text/css" href="site.css"> </link>
+	</header>
+	
+	<body style="background-color:gray">
+			
+		<div id="divHeader">
+			<h1 style="text-align:center; font-family: courier;" >Yatzy Game</h1>
+		</div>
+		
+		<div>
+			<div  id="divMenu">
+				<table id="bottomList">
+					<tr>
+						<td>
+							<button id="standardBtn" style="position:relative" type="button" onclick="ShowGameDiv()">Start Game</button>
+						</td>
+					</tr>
+					<tr>
+						<td>				
+							<button id="standardBtn" style="position:relative" type="button" onclick="ShowHighScoreDiv()">High score</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button id="standardBtn" style="position:relative" type="button" onclick="ShowLoginDiv()">Login</button>
+						</td>
+					</tr>
+				</table> 
+			</div> 
+			
+			<div id="divGame" style="display:none">
+			
+				<div id="divPlayerDisplay">
+					<p>Player <span>-</span>'s turn.</p>
+				</div>
+				
+				<div id="divGameScreen">
+					
+					<table style="width:100%; border: 1px solid black; padding: 5px">
+						<tr>
+							<td width="14.25%">
+								<p>1</p>
+							</td>
+							<td width="14.25%">
+								<p>2</p>
+							</td>
+							<td width="14.25%">
+								<p>3</p>
+							</td>
+							<td width="14.25%">
+								<p>4</p>
+							</td>
+							<td width="14.25%">
+								<p>5</p>
+							</td>
+							<td width="14.25%">
+								<p>6</p>
+							</td>
+							<td width="14.25%">
+								<p>One pair</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>Two pairs</p>
+							</td>
+							<td>
+								<p>Three of a kind</p>
+							</td>
+							<td>
+								<p>Four of a kind</p>
+							</td>
+							<td>
+								<p>Low</p>
+							</td>
+							<td>
+								<p>High</p>
+							</td>
+							<td>
+								<p>Full house</p>
+							</td>
+							<td>
+								<p>Chance</p>
+							</td>
+							<td>
+								<p>Yatzy</p>
+							</td>
+						</tr>
+					</table>
+					
+					
+					<canvas id="dice"></canvas>
+					<canvas id="dice"></canvas>
+					<canvas id="dice"></canvas>
+					<canvas id="dice"></canvas>
+					<canvas id="dice"></canvas>
+					<canvas id="dice"></canvas>
+
+					
+					<button id="standardBtn" style="position:relative; top:60%" type="button" onclick="ShowGameDiv()">Throw dices</button>
+					<button id="standardBtn" style="position:relative; top:60%" type="button" onclick="ShowGameDiv()">Call</button>
+				</div>
+				
+				<div id="divScoreBoard">
+					<table id="yatzy" style="width = 100%">
+						<tr id="yatzy">
+							<th id="yatzy"> Players </th>
+							<th id="yatzy"> Player 1 </th>
+							<th id="yatzy"> Player 2 </th>
+							<th id="yatzy"> Player 3 </th>
+							<th id="yatzy"> Player 4 </th>
+						</tr>
+						<tr id="yatzy">
+							<td>1'ere</td>
+						</tr>
+						<tr id="yatzy">
+							<td>2'ere</td>
+						</tr>
+						<tr id="yatzy">
+							<td>2'ere</td>
+						</tr>
+						<tr id="yatzy">
+							<td>3'ere</td>
+						</tr>
+						<tr id="yatzy">
+							<td>4'ere</td>
+						</tr>
+						<tr id="yatzy">
+							<td>5'ere</td>
+						</tr>
+						<tr id="yatzy">
+							<td>6'ere</td>
+						</tr>
+						<tr id="yatzy">
+							<td>Sum</td>
+						</tr>
+						<tr id="yatzy">
+							<td>Bonus</td>
+						</tr>
+						<tr id="yatzy">
+							<td>Et par</td>
+						</tr>
+						<tr id="yatzy">
+							<td>To par</td>
+						</tr>
+						<tr id="yatzy">
+							<td>Tre ens</td>
+						</tr>
+						<tr id="yatzy">
+							<td>fire ens</td>
+						</tr>
+						<tr id="yatzy">
+							<td>Lav</td>
+						</tr>
+						<tr id="yatzy">
+							<td>Høj</td>
+						</tr>
+						<tr id="yatzy">
+							<td>Fuldt hus</td>
+						</tr>
+						<tr id="yatzy">
+							<td>Chance</td>
+						</tr>
+						<tr id="yatzy">
+							<td>Yatzy</td>
+						</tr>
+						<tr id="yatzy">
+							<td>I alt</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+
+			<div id="divHighScore">
+			</div>
+		
+			<div id="divLogin">
+			</div>
+		</div>
+		<script>
+			function ShowGameDiv(){
+				document.getElementById("divGame").style.display = "block";
+				document.getElementById("divMenu").style.display = "none"; 
+			}
+		</script>
+		<script>
+			function ShowHighScoreDiv(){
+				document.getElementById("divMenu").style.display = "none"; 
+			}
+		</script>
+		<script>
+			function ShowLoginDiv(){
+				document.getElementById("divMenu").style.display = "none"; 
+			}
+		</script>	
+	</body>
+</html>
