@@ -92,16 +92,15 @@
 						</tr>
 					</table>
 					
-					<div style="margin:auto 1.5em; width:80%; text-align:center;">
-					<input id="die1" class="dice" name="radioDiceGroup" type="radio" checked="none">0</input>
+					<div style="position:relative; text-align:center; margin:100px">
+					<div id="die1" class="dice" onclick="check()">0</div>
 					<div id="die2" class="dice" >0</div>
 					<div id="die3" class="dice" >0</div>
 					<div id="die4" class="dice" >0</div>
 					<div id="die5" class="dice" >0</div>
-					<div id="die6" class="dice" >0</div>
 					</div>
 					
-					<div style="float: left; top:300px; margin:center">
+					<div style="position:relative; text-align:center; margin:250px">
 					<button id="standardBtn" style="float:left;" type="button" onclick="RollDice()">Roll dice</button>
 					<button id="standardBtn" style="float:left;" type="button" onclick="ShowGameDiv()">Call</button>
 					</div>
@@ -208,24 +207,33 @@
 				var die3 = document.getElementById("die3");
 				var die4 = document.getElementById("die4");
 				var die5 = document.getElementById("die5");
-				var die6 = document.getElementById("die6");
 				
+				if(die1==unchecked)
 				var d1 = Math.floor(Math.random() * 6) + 1;
 				var d2 = Math.floor(Math.random()*6)+1;
 				var d3 = Math.floor(Math.random()*6)+1;
 				var d4 = Math.floor(Math.random()*6)+1;
 				var d5 = Math.floor(Math.random()*6)+1;
-				var d6 = Math.floor(Math.random()*6)+1;
 				
 				die1.innerHTML = d1;
 				die2.innerHTML = d2;
 				die3.innerHTML = d3;
 				die4.innerHTML = d4;
 				die5.innerHTML = d5;
-				die6.innerHTML = d6;
+			}
+		</script>
+
+		<script>
+			function Check(){
+			
+				var die = document.getElementByClassName("Dice");
 				
+				if(die.checked==false)
+				{die.checked = true;}
+				if(die.checked==true)
+				{die.checked = false;}
 				
 			}
-		</script>	
+		</script>		
 	</body>
 </html>

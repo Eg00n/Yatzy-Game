@@ -95,6 +95,7 @@
 	border-collapse: collapse;
 }
 div.dice{
+
 	float:left;
 	
 	height:30px;
@@ -110,4 +111,7 @@ div.dice{
 	
 	display:inline-block;
 }
-
+div.dice:focus{
+	outline: 1px solid blue;
+	
+}
