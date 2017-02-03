@@ -94,16 +94,16 @@
 	border: 1px solid black;
 	border-collapse: collapse;
 }
-div.dice{
+div.UnCheckedDie{
 
 	float:left;
 	
 	height:30px;
 	width:30px;
 	
-	border:16px solid 	#00e600;
+	border:16px solid #00e600;
 	
-	background-color:white;
+	background:#ffffff;
 	border-radius:25px;
 	text-align:center;
 	padding:30px;
@@ -111,7 +111,21 @@ div.dice{
 	
 	display:inline-block;
 }
-div.dice:focus{
-	outline: 1px solid blue;
+
+div.CheckedDie{
+		float:left;
 	
+	height:30px;
+	width:30px;
+	
+	border:16px solid #00e600;
+	
+	background:#8B008B;
+	border-radius:25px;
+	text-align:center;
+	padding:30px;
+	font-size:32px;
+	
+	display:inline-block;
+}
 }
