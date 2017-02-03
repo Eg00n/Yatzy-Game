@@ -10,33 +10,39 @@
 			function ShowLoginDiv(){
 				document.getElementById("divMenu").style.display = "none"; 
 			}
-
+			
+			var rollCount=0;
 			function RollDice(){
-				var die1 = document.getElementById("die1");
-				var die2 = document.getElementById("die2");
-				var die3 = document.getElementById("die3");
-				var die4 = document.getElementById("die4");
-				var die5 = document.getElementById("die5");
 				
-				if(die1.className != "CheckedDie") {
-					var d1 = Math.floor(Math.random() * 6) + 1;
-					die1.innerHTML = d1;
-				}
-				if(die2.className != "CheckedDie") {
-					var d2 = Math.floor(Math.random() * 6) + 1;
-					die2.innerHTML = d2;
-				}
-				if(die3.className != "CheckedDie") {
-					var d3 = Math.floor(Math.random() * 6) + 1;
-					die3.innerHTML = d3;
-				}
-				if(die4.className != "CheckedDie") {
-					var d4 = Math.floor(Math.random() * 6) + 1;
-					die4.innerHTML = d4;
-				}
-				if(die5.className != "CheckedDie") {
-					var d5 = Math.floor(Math.random() * 6) + 1;
-					die5.innerHTML = d5;
+				if(rollCount<=2)
+				{
+					var die1 = document.getElementById("die1");
+					var die2 = document.getElementById("die2");
+					var die3 = document.getElementById("die3");
+					var die4 = document.getElementById("die4");
+					var die5 = document.getElementById("die5");
+				
+					if(die1.className != "CheckedDie") {
+						var d1 = Math.floor(Math.random() * 6) + 1;
+						die1.innerHTML = d1;
+					}
+					if(die2.className != "CheckedDie") {
+						var d2 = Math.floor(Math.random() * 6) + 1;
+						die2.innerHTML = d2;
+					}
+					if(die3.className != "CheckedDie") {
+						var d3 = Math.floor(Math.random() * 6) + 1;
+						die3.innerHTML = d3;
+					}
+					if(die4.className != "CheckedDie") {
+						var d4 = Math.floor(Math.random() * 6) + 1;
+						die4.innerHTML = d4;
+					}
+					if(die5.className != "CheckedDie") {
+						var d5 = Math.floor(Math.random() * 6) + 1;
+						die5.innerHTML = d5;
+					}
+					++rollCount;
 				}
 			}
 			
