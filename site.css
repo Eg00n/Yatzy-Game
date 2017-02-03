@@ -32,7 +32,7 @@
 	text-align: center;
 }
 #divPlayerDisplay{
-	background-color: red;
+	background-color: #00e600;
 	border: 5px solid white;
 	
 	position:absolute;
@@ -46,7 +46,7 @@
 	
 }
 #divGameScreen{
-	background-color: yellow;
+	background-color: #00e600;
 	border: 5px solid white;
 	
 	position:absolute;
@@ -66,7 +66,7 @@
 	width:29%; 
 	height:98%;
 	right:0px; 
-	background-color:blue;
+	background-color:	#00e600;
 	margin: auto;
 	text-align: center;	
 }
@@ -101,7 +101,7 @@ div.dice{
 	height:30px;
 	width:30px;
 	
-	border:16px solid yellow;
+	border:16px solid 	#00e600;
 	
 	background-color:white;
 	border-radius:25px;
