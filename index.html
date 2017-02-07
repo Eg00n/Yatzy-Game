@@ -8,92 +8,45 @@
 	
 	<body style="background-color:gray">
 			
-		<div id="divHeader">
+		<div class="Header">
 			<h1 style="text-align:center; font-family: courier;" >Yatzy Game</h1>
 		</div>
 		
-		<div>
-			<div  id="divMenu">
+		<div class="boardDiv">
+			<div  id="divMenu" class="boardElement" style="display:block">
 				<table id="bottomList">
 					<tr>
 						<td>
-							<button id="standardBtn" style="position:relative" type="button" onclick="ShowGameDiv()">Start Game</button>
+							<button class="standardBtn" style="position:relative" type="button" onclick="ShowAmountOfPlayersDiv()">Start Game</button>
 						</td>
 					</tr>
 					<tr>
 						<td>				
-							<button id="standardBtn" style="position:relative" type="button" onclick="ShowHighScoreDiv()">High score</button>
+							<button class="standardBtn" style="position:relative" type="button" onclick="ShowHighScoreDiv()">High score</button>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<button id="standardBtn" style="position:relative" type="button" onclick="ShowLoginDiv()">Login</button>
+							<button class="standardBtn" style="position:relative" type="button" onclick="ShowLoginDiv()">Login</button>
 						</td>
 					</tr>
 				</table> 
 			</div> 
 			
-			<div id="divGame" style="display:none">
+			<div id="DivAmountOfPlayers" class="boardElement" style="display:none"> 
+			
+			
+			</div>
+			
+			<div id="divGame" class="boardElement" style="display:none">
 			
 				<div id="divPlayerDisplay">
 					<p>Player <span>-</span>'s turn.</p>
 				</div>
 				
 				<div id="divGameScreen">
-					
-					<table style="width:100%; border: 1px solid black; padding: 5px">
-						<tr>
-							<td width="14.25%">
-								<p>1</p>
-							</td>
-							<td width="14.25%">
-								<p>2</p>
-							</td>
-							<td width="14.25%">
-								<p>3</p>
-							</td>
-							<td width="14.25%">
-								<p>4</p>
-							</td>
-							<td width="14.25%">
-								<p>5</p>
-							</td>
-							<td width="14.25%">
-								<p>6</p>
-							</td>
-							<td width="14.25%">
-								<p>One pair</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<p>Two pairs</p>
-							</td>
-							<td>
-								<p>Three of a kind</p>
-							</td>
-							<td>
-								<p>Four of a kind</p>
-							</td>
-							<td>
-								<p>Low</p>
-							</td>
-							<td>
-								<p>High</p>
-							</td>
-							<td>
-								<p>Full house</p>
-							</td>
-							<td>
-								<p>Chance</p>
-							</td>
-							<td>
-								<p>Yatzy</p>
-							</td>
-						</tr>
-					</table>
-					
-					<div style="position:relative; text-align:center; margin:100px">
+
+					<div class="diceList">
 						<div id="die1" class="UnCheckedDie" onclick="checkDie('die1')">0</div>
 						<div id="die2" class="UnCheckedDie" onclick="checkDie('die2')">0</div>
 						<div id="die3" class="UnCheckedDie" onclick="checkDie('die3')">0</div>
@@ -101,14 +54,69 @@
 						<div id="die5" class="UnCheckedDie" onclick="checkDie('die5')">0</div>
 					</div>
 					
+					<button class="standardBtn" style="" type="button" onclick="RollDice()">Roll dice</button>
+				
+					<table style="width:100%; height: 25%; border: 1px solid black; padding: 5px">
+						<tr>
+							<td width="14.25%">
+								<button id="c1" class="Choice" style="width:100%">1</button>
+							</td>
+							<td width="14.25%">
+								<button id="c2" class="Choice" >2</button>
+							</td>
+							<td width="14.25%">
+								<button id="c3" class="Choice" >3</button>
+							</td>
+							<td width="14.25%">
+								<button id="c4" class="Choice" >4</button>
+							</td>
+							<td width="14.25%">
+								<button id="c5" class="Choice" >5</button>
+							</td>
+							<td width="14.25%">
+								<button id="c6" class="Choice" >6</button>
+							</td>
+							<td width="14.25%">
+								<button id="cOnePair" class="Choice" >One pair</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="cTwoPair" class="Choice" >Two pairs</button>
+							</td>
+							<td>
+								<button id="cThreeOfAKind" class="Choice ">Three of a kind</button>
+							</td>
+							<td>
+								<button id="cFourOfAKind" class="Choice" >Four of a kind</button>
+							</td>
+							<td>
+								<button id="cLow" class="Choice" >Low</button>
+							</td>
+							<td>
+								<button id="cHigh" class="Choice" >High</button>
+							</td>
+							<td>
+								<button id="cFullHouse" class="Choice" >Full house</button>
+							</td>
+							<td>
+								<button id="cChance" class="Choice" >Chance</button>
+							</td>
+							<td>
+								<button id="cYatzy" class="Choice" >Yatzy</button>
+							</td>
+						</tr>
+					</table>
+					
+
 					<div style="position:relative; text-align:center; margin:250px">
-						<button id="standardBtn" style="float:left;" type="button" onclick="RollDice()">Roll dice</button>
-						<button id="standardBtn" style="float:left;" type="button" onclick="ShowGameDiv()">Call</button>
+						
+						<button class="standardBtn" style="float:left;" type="button" onclick="ShowGameDiv()">Call</button>
 					</div>
 				</div>
-				
+					
 				<div id="divScoreBoard">
-					<table id="yatzy" style="width = 100%">
+				<table id="scoreBoard">
 						<tr id="yatzy">
 							<th id="yatzy"> Players </th>
 							<th id="yatzy"> Player 1 </th>
@@ -177,12 +185,12 @@
 				</div>
 			</div>
 			
-
-			<div id="divHighScore">
+			<div id="divHighScore" class="boardElement" style="display:none">
 			</div>
 		
-			<div id="divLogin">
+			<div id="divLogin" class="boardElement" style="display:none">
 			</div>
 		</div>	
 	</body>
+</html>
 </html>
