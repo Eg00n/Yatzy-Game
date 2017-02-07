@@ -14,27 +14,39 @@
 		
 		<div class="boardDiv">
 			<div  id="divMenu" class="boardElement" style="display:block">
-				<table id="bottomList">
-					<tr>
-						<td>
-							<button class="standardBtn" style="position:relative" type="button" onclick="ShowAmountOfPlayersDiv()">Start Game</button>
-						</td>
-					</tr>
-					<tr>
-						<td>				
-							<button class="standardBtn" style="position:relative" type="button" onclick="ShowHighScoreDiv()">High score</button>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<button class="standardBtn" style="position:relative" type="button" onclick="ShowLoginDiv()">Login</button>
-						</td>
-					</tr>
-				</table> 
+
+							<button class="standardBtn" style="position:relative; float:center; top:25%" type="button" onclick="ShowAmountOfPlayersDiv()">Start Game</button>
+			
+							<button class="standardBtn" style="position:relative; float:center; top:50%" type="button" onclick="ShowHighScoreDiv()">High score</button>
+
+							<button class="standardBtn" style="position:relative; float:center; top:75%" type="button" onclick="ShowLoginDiv()">Login</button>
+ 
 			</div> 
 			
 			<div id="DivAmountOfPlayers" class="boardElement" style="display:none"> 
 			
+				<table id="bottomList">
+					<tr>
+						<td>
+							<button class="standardBtn" style="position:relative" type="button" onclick="SetPlayers1()">1 Player</button>
+						</td>
+					</tr>
+					<tr>
+						<td>				
+							<button class="standardBtn" style="position:relative" type="button" onclick="SetPlayers2()">2 Player</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button class="standardBtn" style="position:relative" type="button" onclick="SetPlayers3()">3 Player</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button class="standardBtn" style="position:relative" type="button" onclick="SetPlayers4()">4 Player</button>
+						</td>
+					</tr>
+				</table> 
 			
 			</div>
 			

@@ -1,7 +1,7 @@
 			//Menuchange
 
 			function ShowAmountOfPlayersDiv(){
-				document.getElementById("divGame").style.display = "block";
+				document.getElementById("DivAmountOfPlayers").style.display = "block";
 				document.getElementById("divMenu").style.display = "none"; 
 			}			
 		
