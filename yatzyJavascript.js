@@ -68,6 +68,9 @@
 					document.getElementById(id).className += " CheckedDie";
 			}
 			
-			function GetAmountOfColoums
 			
+			var amountOfPlayers=0;
 			
+			function SetPlayers(amount){
+				amountOfPlayers=amount;
+			}

@@ -116,10 +116,16 @@ button.Choice{
 button.standardBtn{
 	width:150px;
 	height:45px;
-	position:relative;	
+		
 	border: 3px solid white;
 	font-size:16px;
 	font-family: courier;
+	
+	display:inline-block;
+}
+
+button.menuBtn{
+	position:relative;
 }
 
 table.scoreBoard{
