@@ -77,59 +77,8 @@
 					
 					<button class="standardBtn" type="button" onclick="RollDice()">Roll dice</button>
 				
-					<table style="width:100%; height: 25%; border: 1px solid black; padding: 5px">
-						<tr>
-							<td width="14.25%">
-								<button id="c1" class="Choice" style="width:100%">1</button>
-							</td>
-							<td width="14.25%">
-								<button id="c2" class="Choice" >2</button>
-							</td>
-							<td width="14.25%">
-								<button id="c3" class="Choice" >3</button>
-							</td>
-							<td width="14.25%">
-								<button id="c4" class="Choice" >4</button>
-							</td>
-							<td width="14.25%">
-								<button id="c5" class="Choice" >5</button>
-							</td>
-							<td width="14.25%">
-								<button id="c6" class="Choice" >6</button>
-							</td>
-							<td width="14.25%">
-								<button id="cOnePair" class="Choice" >One pair</button>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<button id="cTwoPair" class="Choice" >Two pairs</button>
-							</td>
-							<td>
-								<button id="cThreeOfAKind" class="Choice ">Three of a kind</button>
-							</td>
-							<td>
-								<button id="cFourOfAKind" class="Choice" >Four of a kind</button>
-							</td>
-							<td>
-								<button id="cLow" class="Choice" >Low</button>
-							</td>
-							<td>
-								<button id="cHigh" class="Choice" >High</button>
-							</td>
-							<td>
-								<button id="cFullHouse" class="Choice" >Full house</button>
-							</td>
-							<td>
-								<button id="cChance" class="Choice" >Chance</button>
-							</td>
-							<td>
-								<button id="cYatzy" class="Choice" >Yatzy</button>
-							</td>
-						</tr>
-					</table>
-				
-					<button class="standardBtn" type="button" onclick="Call(); EndTurn()">Call</button>
+					
+					<button class="standardBtn" type="button" style="bottom:15px"onclick="Call(); EndTurn()">Call</button>
 				</div>
 					
 				<div id="divScoreBoard">
@@ -142,58 +91,89 @@
 							<th id="yatzy"> Player 4 </th>
 						</tr>
 						<tr id="yatzy">
-							<td>1'ere</td>
+							<td>
+								<button id="c1" class="ChoiceBtn">1</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>2'ere</td>
+							<td>
+								<button id="c2" class="ChoiceBtn">2</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>2'ere</td>
+							<td>
+								<button id="c3" class="ChoiceBtn">3</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>3'ere</td>
+							<td>
+								<button id="c4" class="ChoiceBtn">4</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>4'ere</td>
+							<td>
+								<button id="c5" class="ChoiceBtn">5</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>5'ere</td>
+							<td>
+								<button id="c6" class="ChoiceBtn">6</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>6'ere</td>
+							<td>
+								<button id="cSum" class="ChoiceBtn">Sum</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>Sum</td>
+							<td>
+								<button id="cBonus" class="ChoiceBtn">Bonus</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>Bonus</td>
+							<td>
+								<button id="cOnePair" class="ChoiceBtn">One Pair</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>Et par</td>
+							<td>
+								<button id="cTwoPair" class="ChoiceBtn">Two Pair</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>To par</td>
+							<td>
+								<button id="cThreeOfAKind" class="ChoiceBtn">Three of a kind</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>Tre ens</td>
+							<td>
+								<button id="cFourOfAKind" class="ChoiceBtn">Four of a kind</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>fire ens</td>
+							<td>
+								<button id="cLow" class="ChoiceBtn">low strait</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>Lav</td>
+							<td>
+								<button id="cHigh" class="ChoiceBtn">High strait</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>Høj</td>
+							<td>
+								<button id="cFullHouse" class="ChoiceBtn">Full House</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>Fuldt hus</td>
+							<td>
+								<button id="cChance" class="ChoiceBtn">Chance</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
-							<td>Chance</td>
-						</tr>
-						<tr id="yatzy">
-							<td>Yatzy</td>
+							<td>
+								<button id="cYatzy" class="ChoiceBtn">Yatzy</button>
+							</td>
 						</tr>
 						<tr id="yatzy">
 							<td>I alt</td>
