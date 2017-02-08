@@ -106,9 +106,9 @@ div.CheckedDie{
 	background:#a6a6a6
 }
 
-button.Choice{
+button.ChoiceBtn{
 	width: 100%;
-	height: 100%;
+	height: 35px;
 	font-family: courier;
 	font-weight: bold;
 }
@@ -128,7 +128,7 @@ button.menuBtn{
 	position:relative;
 }
 
-table.scoreBoard{
+#scoreBoard{
 	width: 100%;
 	border: 1px solid black;
 	border-collapse: collapse;

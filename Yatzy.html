@@ -13,7 +13,7 @@
 		</div>
 		
 		<div class="boardDiv">
-			<div  id="divMenu" class="boardElement" style="display:block">					
+			<div  id="divMenu" style="display:block">					
 				<table id="bottomList">
 					<tr>
 						<td>
@@ -33,33 +33,33 @@
 				</table> 
 			</div> 
 			
-			<div id="DivAmountOfPlayers" class="boardElement" style="display:none"> 
+			<div id="DivAmountOfPlayers" style="display:none"> 
 			
 				<table id="bottomList">
 					<tr>
 						<td>
-							<button class="standardBtn" type="button" onclick="SetPlayers(1); ShowGameDiv()">1 Player</button>
+							<button class="standardBtn" type="button" onclick="SetPlayers(1); appendColumn(); ShowGameDiv()">1 Player</button>
 						</td>
 					</tr>
 					<tr>
 						<td>				
-							<button class="standardBtn" type="button" onclick="SetPlayers(2); ShowGameDiv()">2 Player</button>
+							<button class="standardBtn" type="button" onclick="SetPlayers(2); appendColumn(); ShowGameDiv()">2 Player</button>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<button class="standardBtn" type="button" onclick="SetPlayers(3); ShowGameDiv()">3 Player</button>
+							<button class="standardBtn" type="button" onclick="SetPlayers(3); appendColumn(); ShowGameDiv()">3 Player</button>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<button class="standardBtn" type="button" onclick="SetPlayers(4); ShowGameDiv()">4 Player</button>
+							<button class="standardBtn" type="button" onclick="SetPlayers(4); appendColumn(); ShowGameDiv()">4 Player</button>
 						</td>
 					</tr>
 				</table> 
 			
 			</div>	
-			<div id="divGame" class="boardElement" style="display:none">
+			<div id="divGame" style="display:none">
 			
 				<div id="divPlayerDisplay">
 					<p>Player <span>-</span>'s turn.</p>
@@ -83,99 +83,96 @@
 					
 				<div id="divScoreBoard">
 				<table id="scoreBoard">
-						<tr id="yatzy">
-							<th id="yatzy"> Players </th>
-							<th id="yatzy"> Player 1 </th>
-							<th id="yatzy"> Player 2 </th>
-							<th id="yatzy"> Player 3 </th>
-							<th id="yatzy"> Player 4 </th>
+						<tr>
+						<th> - </th>
+
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="c1" class="ChoiceBtn">1</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="c2" class="ChoiceBtn">2</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="c3" class="ChoiceBtn">3</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="c4" class="ChoiceBtn">4</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="c5" class="ChoiceBtn">5</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="c6" class="ChoiceBtn">6</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="cSum" class="ChoiceBtn">Sum</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="cBonus" class="ChoiceBtn">Bonus</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="cOnePair" class="ChoiceBtn">One Pair</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="cTwoPair" class="ChoiceBtn">Two Pair</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="cThreeOfAKind" class="ChoiceBtn">Three of a kind</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="cFourOfAKind" class="ChoiceBtn">Four of a kind</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="cLow" class="ChoiceBtn">low strait</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="cHigh" class="ChoiceBtn">High strait</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="cFullHouse" class="ChoiceBtn">Full House</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="cChance" class="ChoiceBtn">Chance</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>
 								<button id="cYatzy" class="ChoiceBtn">Yatzy</button>
 							</td>
 						</tr>
-						<tr id="yatzy">
+						<tr>
 							<td>I alt</td>
 						</tr>
 					</table>
