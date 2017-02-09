@@ -104,6 +104,21 @@ function EndTurn()
 	}
 	document.getElementById("currentPlayer").innerHTML = currentPlayer;
 	
+	document.getElementById("die1").className = "Die";
+	document.getElementById("die2").className = "Die";
+	document.getElementById("die3").className = "Die";
+	document.getElementById("die4").className = "Die";
+	document.getElementById("die5").className = "Die";
+	
+	die1.innerHTML=0;
+	die2.innerHTML=0;
+	die3.innerHTML=0;
+	die4.innerHTML=0;
+	die5.innerHTML=0;
+	
+	
+	 rollCount=0;
+	
 }
 
 
