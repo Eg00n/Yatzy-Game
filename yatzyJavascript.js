@@ -161,6 +161,7 @@ function checkFor1()
 			r = d.getElementsByTagName("td")[currentPlayer];
 		
 			r.innerHTML=pointSum;
+			r.style.backgroundColor="#70db70";
 	}	
 }
 function checkFor2()
@@ -200,6 +201,7 @@ function checkFor2()
 			r = d.getElementsByTagName("td")[currentPlayer];
 		
 			r.innerHTML=pointSum;
+			r.style.backgroundColor="#70db70";
 	}
 }
 function checkFor3()
@@ -239,6 +241,7 @@ function checkFor3()
 			r = d.getElementsByTagName("td")[currentPlayer];
 		
 			r.innerHTML=pointSum;
+			r.style.background="#70db70";
 	}
 }
 function checkFor4()
@@ -277,6 +280,7 @@ function checkFor4()
 			r = d.getElementsByTagName("td")[currentPlayer];
 		
 			r.innerHTML=pointSum;
+			r.style.backgroundColor="#70db70";
 	}
 }
 function checkFor5()
@@ -316,6 +320,7 @@ function checkFor5()
 			r = d.getElementsByTagName("td")[currentPlayer];
 		
 			r.innerHTML=pointSum;
+			r.style.backgroundColor="#70db70";
 	}
 }
 function checkFor6()
@@ -355,6 +360,7 @@ function checkFor6()
 			r = d.getElementsByTagName("td")[currentPlayer];
 		
 			r.innerHTML=pointSum;
+			r.style.backgroundColor="#70db70";
 	}
 }
 function checkForOnePair(){}
@@ -412,6 +418,7 @@ function AddEyes(){
 		}
 		
 		document.getElementById("sum").innerHTML=pointSum;
+		
 	}	
 }
 
