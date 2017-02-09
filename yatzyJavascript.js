@@ -82,7 +82,13 @@ function appendColumn() {
 			i;
 		// open loop for each row and append cell
 		for (i = 0; i < tbl.rows.length; i++) {
-			createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), i, 'col');
+			if(i==0){
+				createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), "Player "+ (1+j), 'col');
+			}
+			else
+			{
+				createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), " " , 'col');
+			}
 		}
 	}
 }
