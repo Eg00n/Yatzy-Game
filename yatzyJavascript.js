@@ -66,9 +66,12 @@ function checkDie(id){
 	}
 
 	var amountOfPlayers=0;
+	var currentPlayer=0;
 
 function SetPlayers(amount){
 	amountOfPlayers=amount;
+	currentPlayer=1;	
+	document.getElementById("currentPlayer").innerHTML = currentPlayer;
 }
 
 // append column to the HTML table
@@ -92,3 +95,5 @@ function createCell(cell, text, style) {
     div.setAttribute('className', style);    // set DIV class attribute for IE (?!)
     cell.appendChild(div);                   // append DIV to the table cell
 }
+
+
