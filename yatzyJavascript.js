@@ -16,6 +16,8 @@ function ShowLoginDiv(){
 	document.getElementById("divMenu").style.display = "none"; 
 }
 
+
+//Gamefunctions
 var rollCount=0;
 
 function RollDice(){			
@@ -65,8 +67,14 @@ function checkDie(id){
 		document.getElementById(id).className += " CheckedDie";
 	}
 
-	var amountOfPlayers=0;
-	var currentPlayer=0;
+	
+	
+
+//playerfunctions
+
+var yatzyPoints = {1:0,2:0,3:0,4:0,5:0,6:0,bonus:0,onePair:0,twoPair:0,threeOfAKind:0, fourOfAKind:0,lowStrait:0,highStrait:0,fullHouse:0,chance:0,yatzy:0};	
+var amountOfPlayers=0;
+var currentPlayer=0;
 
 function SetPlayers(amount){
 	amountOfPlayers=amount;
@@ -83,15 +91,17 @@ function appendColumn() {
 		// open loop for each row and append cell
 		for (i = 0; i < tbl.rows.length; i++) {
 			if(i==0){
-				createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), "Player "+ (1+j), 'col');
+				createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), "Player "+ (1+j), 'tdScoreBoard');
 			}
 			else
 			{
-				createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), " " , 'col');
+				createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), " " , 'tdScoreBoard');
 			}
 		}
 	}
 }
+
+
 // create DIV element and append to the table cell
 function createCell(cell, text, style) {
     var div = document.createElement('div'), // create DIV element
@@ -100,6 +110,11 @@ function createCell(cell, text, style) {
     div.setAttribute('class', style);        // set DIV class attribute
     div.setAttribute('className', style);    // set DIV class attribute for IE (?!)
     cell.appendChild(div);                   // append DIV to the table cell
+}
+
+function AddResultToTable(){
+	
+	
 }
 
 

@@ -133,3 +133,7 @@ button.menuBtn{
 	border: 1px solid black;
 	border-collapse: collapse;
 }
+td.tdScoreBoard{
+	order: 1px solid black;
+	border-collapse: collapse;
+}
