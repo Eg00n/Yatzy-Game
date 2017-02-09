@@ -54,8 +54,7 @@ function RollDice(){
 		if(die5.className != "Die CheckedDie") {
 			var d5 = Math.floor(Math.random() * 6) + 1;
 			die5.innerHTML = d5;
-		}
-		
+		}	
 		++rollCount;
 	}
 }
@@ -67,12 +66,14 @@ function display() {
 	window.setTimeout(display, 1000);
 }*/
 function checkDie(id){
+	if(rollCount!=0)
+	{
 	if(document.getElementById(id).className == "Die CheckedDie")
 		document.getElementById(id).className = "Die";
 	else if(document.getElementById(id).className == "Die")
 		document.getElementById(id).className += " CheckedDie";
 	}
-
+}
 	
 	
 
@@ -111,6 +112,62 @@ function appendColumn() {
 		}
 	}
 }
+
+function checkFor1()
+{
+	pointSum=0;
+	if(rollCount<0)
+	{
+		//alert player to roll first		
+	}
+	else
+	{
+		if(die1.className=="Die CheckedDie" && die1.innerHTML=="1")
+		{
+			pointSum=+pointSum+parseInt(die1.innerHTML);
+		}
+		if(die2.className=="Die CheckedDie" && die2.innerHTML=="1")
+		{
+			pointSum=+pointSum+parseInt(die2.innerHTML);
+		}
+		if(die3.className=="Die CheckedDie" && die3.innerHTML=="1")
+		{
+			pointSum=+pointSum+parseInt(die3.innerHTML);
+		}
+		if(die4.className=="Die CheckedDie" && die4.innerHTML=="1")
+		{
+			pointSum=+pointSum+parseInt(die4.innerHTML);
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML=="1")
+		{
+			pointSum=+pointSum+parseInt(die5.innerHTML);
+		}
+		
+		var t = document.getElementById("scoreBoard"), // This have to be the ID of your table, not the tag
+			d = t.getElementsByTagName("tr")[1],
+			r = d.getElementsByTagName("td")[currentPlayer];
+		
+			r.innerHTML=pointSum;
+	}	
+	
+}
+function checkFor2(){}
+function checkFor3(){}
+function checkFor4(){}
+function checkFor5(){}
+function checkFor6(){}
+function checkForOnePair(){}
+function checkForTwoPair(){}
+function checkForThreeOfAKind(){}
+function checkForFourOfAKind(){}
+function checkForLowStrait(){}
+function checkForHighStrait(){}
+function checkForFullHouse(){}
+function checkForChance(){}
+function checkForYatzy(){}
+
+
+
 
 
 // create DIV element and append to the table cell

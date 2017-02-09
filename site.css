@@ -7,7 +7,7 @@ div.boardDiv{
 	background-color:white;
 	position:relative;
 	border: 5px solid gray;
-	height: 500px;
+	height: 700px;
 	margin:auto;
 	text-align: center;
 	font-family: courier;
@@ -22,12 +22,12 @@ div.boardElement{
 	background-color:white;
 	position:relative;
 	border: 5px solid gray;
-	height: 500px;
+	height: 700px;
 	margin:auto;
 	text-align: center;
 }
 #divPlayerDisplay{
-	background-color: #00e600;
+	background-color: #f2f2f2;
 	border: 5px solid white;
 	
 	position:absolute;
@@ -41,7 +41,7 @@ div.boardElement{
 	
 }
 #divGameScreen{
-	background-color: #00e600;
+	background-color: #f2f2f2;
 	border: 5px solid white;
 	
 	position:absolute;
@@ -60,7 +60,7 @@ div.boardElement{
 	width:29%; 
 	height:98%;
 	right:0px; 
-	background-color:#00e600;
+	background-color:#f2f2f2;
 	margin: auto;
 	text-align: center;	
 }
@@ -89,7 +89,7 @@ div.Die{
 	height:30px;
 	width:30px;
 	
-	border:16px solid #00e600;
+	border:16px solid #f2f2f2;
 	
 	background:#ffffff;
 	border-radius:25px;
