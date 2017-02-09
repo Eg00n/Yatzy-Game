@@ -20,32 +20,38 @@ function ShowLoginDiv(){
 //Gamefunctions
 var rollCount=0;
 
+var die1 = 0;
+var die2 = 0;
+var die3 = 0;
+var die4 = 0;
+var die5 = 0;
+
 function RollDice(){			
 	if(rollCount<=2)
 	{
-		var die1 = document.getElementById("die1");
-		var die2 = document.getElementById("die2");
-		var die3 = document.getElementById("die3");
-		var die4 = document.getElementById("die4");
-		var die5 = document.getElementById("die5");
+		die1 = document.getElementById("die1");
+		die2 = document.getElementById("die2");
+		die3 = document.getElementById("die3");
+		die4 = document.getElementById("die4");
+		die5 = document.getElementById("die5");
 			
-		if(die1.className != "UnCheckedDie CheckedDie") {
+		if(die1.className != "Die CheckedDie") {
 			var d1 = Math.floor(Math.random() * 6) + 1;
 			die1.innerHTML = d1;
 		}
-		if(die2.className != "UnCheckedDie CheckedDie") {
+		if(die2.className != "Die CheckedDie") {
 			var d2 = Math.floor(Math.random() * 6) + 1;
 			die2.innerHTML = d2;
 		}
-		if(die3.className != "UnCheckedDie CheckedDie") {
+		if(die3.className != "Die CheckedDie") {
 			var d3 = Math.floor(Math.random() * 6) + 1;
 			die3.innerHTML = d3;
 		}
-		if(die4.className != "UnCheckedDie CheckedDie") {
+		if(die4.className != "Die CheckedDie") {
 			var d4 = Math.floor(Math.random() * 6) + 1;
 			die4.innerHTML = d4;
 		}
-		if(die5.className != "UnCheckedDie CheckedDie") {
+		if(die5.className != "Die CheckedDie") {
 			var d5 = Math.floor(Math.random() * 6) + 1;
 			die5.innerHTML = d5;
 		}
@@ -61,9 +67,9 @@ function display() {
 	window.setTimeout(display, 1000);
 }*/
 function checkDie(id){
-	if(document.getElementById(id).className == "UnCheckedDie CheckedDie")
-		document.getElementById(id).className = "UnCheckedDie";
-	else if(document.getElementById(id).className == "UnCheckedDie")
+	if(document.getElementById(id).className == "Die CheckedDie")
+		document.getElementById(id).className = "Die";
+	else if(document.getElementById(id).className == "Die")
 		document.getElementById(id).className += " CheckedDie";
 	}
 
@@ -78,6 +84,11 @@ var currentPlayer=0;
 
 function SetPlayers(amount){
 	amountOfPlayers=amount;
+	
+	for(i=0;i<amountOfPlayers;i++)
+	{
+		
+	}
 	currentPlayer=1;	
 	document.getElementById("currentPlayer").innerHTML = currentPlayer;
 }
@@ -112,9 +123,38 @@ function createCell(cell, text, style) {
     cell.appendChild(div);                   // append DIV to the table cell
 }
 
-function AddResultToTable(){
-	
-	
+var pointSum=0;
+
+function AddEyes(){
+	if(rollCount<0)
+	{
+		//alert player to roll first		
+	}
+	else
+	{
+		if(die1.className=="Die CheckedDie")
+		{
+			pointSum=+pointSum+parseInt(die1.innerHTML);
+		}
+		if(die2.className=="Die CheckedDie")
+		{
+			pointSum=+pointSum+parseInt(die2.innerHTML);
+		}
+		if(die3.className=="Die CheckedDie")
+		{
+			pointSum=+pointSum+parseInt(die3.innerHTML);
+		}
+		if(die4.className=="Die CheckedDie")
+		{
+			pointSum=+pointSum+parseInt(die4.innerHTML);
+		}
+		if(die5.className=="Die CheckedDie")
+		{
+			pointSum=+pointSum+parseInt(die5.innerHTML);
+		}
+		
+		document.getElementById("sum").innerHTML=pointSum;
+	}	
 }
 
 

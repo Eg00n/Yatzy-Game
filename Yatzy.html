@@ -66,19 +66,22 @@
 				</div>
 				
 				<div id="divGameScreen">
-
+					
+					<p id="sum"> - </p>
+					
+					
 					<div class="diceList">
-						<div id="die1" class="UnCheckedDie" onclick="checkDie('die1')">0</div>
-						<div id="die2" class="UnCheckedDie" onclick="checkDie('die2')">0</div>
-						<div id="die3" class="UnCheckedDie" onclick="checkDie('die3')">0</div>
-						<div id="die4" class="UnCheckedDie" onclick="checkDie('die4')">0</div>
-						<div id="die5" class="UnCheckedDie" onclick="checkDie('die5')">0</div>
+						<div id="die1" class="Die" onclick="checkDie('die1')">0</div>
+						<div id="die2" class="Die" onclick="checkDie('die2')">0</div>
+						<div id="die3" class="Die" onclick="checkDie('die3')">0</div>
+						<div id="die4" class="Die" onclick="checkDie('die4')">0</div>
+						<div id="die5" class="Die" onclick="checkDie('die5')">0</div>
 					</div>
 					
 					<button class="standardBtn" type="button" onclick="RollDice()">Roll dice</button>
 				
 					
-					<button class="standardBtn" type="button" style="bottom:15px"onclick="Call(); EndTurn()">Call</button>
+					<button class="standardBtn" type="button" style="bottom:15px"onclick="AddEyes()">Call</button>
 				</div>
 					
 				<div id="divScoreBoard">
@@ -169,7 +172,7 @@
 						</tr>
 						<tr>
 							<td>
-								<button id="cYatzy" class="ChoiceBtn">Yatzy</button>
+								<button id="cYatzy" class="ChoiceBtn" onclick="AddEyes()">Yatzy</button>
 							</td>
 						</tr>
 						<tr>
