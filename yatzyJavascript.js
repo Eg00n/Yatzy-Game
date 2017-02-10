@@ -227,9 +227,9 @@ function checkForOnePair(){}
 function checkForTwoPair(){}
 function checkForThreeOfAKind(){}
 function checkForFourOfAKind(){}
-function checkForLowStrait(){}
-function checkForHighStrait(){}
-function checkForFullHouse(){}
+function checkForLow(){}
+function checkForHigh(){}
+function checkForHouse(){}
 function checkForChance(){}
 function checkForYatzy(){}
 
