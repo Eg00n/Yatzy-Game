@@ -86,6 +86,8 @@ var yatzyPoints = {1:0,2:0,3:0,4:0,5:0,6:0,bonus:0,onePair:0,twoPair:0,threeOfAK
 var amountOfPlayers=0;
 var currentPlayer=0;
 
+
+
 function SetPlayers(amount){
 	amountOfPlayers=amount;
 	
@@ -100,8 +102,8 @@ function SetPlayers(amount){
 function EndTurn()
 {
 	//Update table 
-	
 	UpdateSum(currentPlayer);
+	CheckForBonus(currentPlayer);
 	
 	//change player
 	if(rollCount!=0)
@@ -162,6 +164,8 @@ function appendColumn() {
 var pointSum=0;
 var ZeroPointConfirmed=0; 
 var ZeroPointChoiceConfirmed=0;
+var bonuspoints=50;
+
 function checkFor(eyes)
 {
 	if(rollCount!=0)
@@ -228,6 +232,14 @@ function UpdateSum(currentPlayer)
 	addPointsToTable(sum,currentPlayer,row);
 }
 
+function CheckForBonus(currentPlayer){	
+	var bonusRow=8;
+	if(GetPointsFromTable(currentPlayer)>=63)
+	{
+		addPointsToTable(bonuspoints,currentPlayer,bonusRow)
+	}
+}
+
 function GetPointsFromTable(currentPlayer)
 {
 	var sum =0;
@@ -266,7 +278,6 @@ function createCell(cell, text, style) {
     div.setAttribute('className', style);    // set DIV class attribute for IE (?!)
     cell.appendChild(div);                   // append DIV to the table cell
 }
-
 
 
 function AddEyes(){
