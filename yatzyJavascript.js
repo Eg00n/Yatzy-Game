@@ -26,7 +26,10 @@ var die3 = 0;
 var die4 = 0;
 var die5 = 0;
 
-function RollDice(){			
+function RollDice(){
+	
+	
+	
 	if(rollCount<=2)
 	{
 		die1 = document.getElementById("die1");
@@ -97,7 +100,7 @@ function SetPlayers(amount){
 function EndTurn()
 {
 	//change player
-	if(rollcount>0)
+	if(rollCount!=0)
 	{
 	if(currentPlayer<amountOfPlayers){
 	currentPlayer=++currentPlayer;
@@ -120,9 +123,12 @@ function EndTurn()
 	die4.innerHTML=0;
 	die5.innerHTML=0;
 	
-	//reset rollcounter
+	//reset round variables
 	 rollCount=0;
-	 
+	 ZeroPointConfirmed=0;
+	 ZeroPointChoiceConfirmed=0;
+	 pointSum=0;
+	 document.getElementById("message").innerHTML="-";
 	//save choice in table
 	
 	
@@ -149,249 +155,56 @@ function appendColumn() {
 	}
 }
 
-//boolean onlyOneChecked = false;
+var pointSum=0;
+var ZeroPointConfirmed=0; 
+var ZeroPointChoiceConfirmed=0;
+function checkFor(eyes)
+{
+	if(rollCount!=0)
+	{
+			if(die1.className=="Die CheckedDie" && die1.innerHTML==eyes)
+			{
+				pointSum=+pointSum+parseInt(die1.innerHTML);
+			}
+			if(die2.className=="Die CheckedDie" && die2.innerHTML==eyes)
+			{
+				pointSum=+pointSum+parseInt(die2.innerHTML);
+			}
+			if(die3.className=="Die CheckedDie" && die3.innerHTML==eyes)
+			{
+				pointSum=+pointSum+parseInt(die3.innerHTML);
+			}
+			if(die4.className=="Die CheckedDie" && die4.innerHTML==eyes)
+			{
+				pointSum=+pointSum+parseInt(die4.innerHTML);
+			}
+			if(die5.className=="Die CheckedDie" && die5.innerHTML==eyes)
+			{
+				pointSum=+pointSum+parseInt(die5.innerHTML);
+			}
 
-function checkFor1()
-{
-	if(onlyOneChecked=false)
-	{
-	pointSum=0;
-	if(rollCount<0)
-	{
-		//alert player to roll first		
+		if(pointSum==0)
+		{
+			if(ZeroPointConfirmed==1&&ZeroPointChoiceConfirmed==eyes)
+			{
+				addPointsToTable(pointSum, currentPlayer, eyes);
+				EndTurn();
+			}
+			else{
+			document.getElementById("message").innerHTML="Are you sure you want to commit 0 points? <br>- Click choice again if you are";
+			ZeroPointConfirmed++; 
+			ZeroPointChoiceConfirmed=eyes;
+			}
+		}
+		else{
+			addPointsToTable(pointSum, currentPlayer, eyes);
+			EndTurn();
+		}
 	}
-	else
-	{
-		if(die1.className=="Die CheckedDie" && die1.innerHTML=="1")
-		{
-			pointSum=+pointSum+parseInt(die1.innerHTML);
-		}
-		if(die2.className=="Die CheckedDie" && die2.innerHTML=="1")
-		{
-			pointSum=+pointSum+parseInt(die2.innerHTML);
-		}
-		if(die3.className=="Die CheckedDie" && die3.innerHTML=="1")
-		{
-			pointSum=+pointSum+parseInt(die3.innerHTML);
-		}
-		if(die4.className=="Die CheckedDie" && die4.innerHTML=="1")
-		{
-			pointSum=+pointSum+parseInt(die4.innerHTML);
-		}
-		if(die5.className=="Die CheckedDie" && die5.innerHTML=="1")
-		{
-			pointSum=+pointSum+parseInt(die5.innerHTML);
-		}
-		
-		 
-		
-		var t = document.getElementById("scoreBoard"), // This have to be the ID of your table, not the tag
-			d = t.getElementsByTagName("tr")[1],
-			r = d.getElementsByTagName("td")[currentPlayer];
-		
-			r.innerHTML=pointSum;
-			r.style.backgroundColor="#70db70";
+	else{
+		document.getElementById("message").innerHTML="You have to roll first!";
 	}
-	}	
-}
-function checkFor2()
-{
-	pointSum=0;
-	
-	
-	if(rollCount<0)
-	{
-		//alert player to roll first		
-	}
-	else
-	{
-		if(die1.className=="Die CheckedDie" && die1.innerHTML=="2")
-		{
-			pointSum=+pointSum+parseInt(die1.innerHTML);
-		}
-		if(die2.className=="Die CheckedDie" && die2.innerHTML=="2")
-		{
-			pointSum=+pointSum+parseInt(die2.innerHTML);
-		}
-		if(die3.className=="Die CheckedDie" && die3.innerHTML=="2")
-		{
-			pointSum=+pointSum+parseInt(die3.innerHTML);
-		}
-		if(die4.className=="Die CheckedDie" && die4.innerHTML=="2")
-		{
-			pointSum=+pointSum+parseInt(die4.innerHTML);
-		}
-		if(die5.className=="Die CheckedDie" && die5.innerHTML=="2")
-		{
-			pointSum=+pointSum+parseInt(die5.innerHTML);
-		}
 		
-		var t = document.getElementById("scoreBoard"), // This have to be the ID of your table, not the tag
-			d = t.getElementsByTagName("tr")[2],
-			r = d.getElementsByTagName("td")[currentPlayer];
-		
-			r.innerHTML=pointSum;
-			r.style.backgroundColor="#70db70";
-	}
-}
-function checkFor3()
-{
-	pointSum=0;
-	
-	
-	if(rollCount=0)
-	{
-		//alert player to roll first		
-	}
-	else
-	{
-		if(die1.className=="Die CheckedDie" && die1.innerHTML=="3")
-		{
-			pointSum=+pointSum+parseInt(die1.innerHTML);
-		}
-		if(die2.className=="Die CheckedDie" && die2.innerHTML=="3")
-		{
-			pointSum=+pointSum+parseInt(die2.innerHTML);
-		}
-		if(die3.className=="Die CheckedDie" && die3.innerHTML=="3")
-		{
-			pointSum=+pointSum+parseInt(die3.innerHTML);
-		}
-		if(die4.className=="Die CheckedDie" && die4.innerHTML=="3")
-		{
-			pointSum=+pointSum+parseInt(die4.innerHTML);
-		}
-		if(die5.className=="Die CheckedDie" && die5.innerHTML=="3")
-		{
-			pointSum=+pointSum+parseInt(die5.innerHTML);
-		}
-		
-		var t = document.getElementById("scoreBoard"), // This have to be the ID of your table, not the tag
-			d = t.getElementsByTagName("tr")[3],
-			r = d.getElementsByTagName("td")[currentPlayer];
-		
-			r.innerHTML=pointSum;
-			r.style.background="#70db70";
-	}
-}
-function checkFor4()
-{
-	pointSum=0;
-	
-	if(rollCount<0)
-	{
-		//alert player to roll first		
-	}
-	else
-	{
-		if(die1.className=="Die CheckedDie" && die1.innerHTML=="4")
-		{
-			pointSum=+pointSum+parseInt(die1.innerHTML);
-		}
-		if(die2.className=="Die CheckedDie" && die2.innerHTML=="4")
-		{
-			pointSum=+pointSum+parseInt(die2.innerHTML);
-		}
-		if(die3.className=="Die CheckedDie" && die3.innerHTML=="4")
-		{
-			pointSum=+pointSum+parseInt(die3.innerHTML);
-		}
-		if(die4.className=="Die CheckedDie" && die4.innerHTML=="4")
-		{
-			pointSum=+pointSum+parseInt(die4.innerHTML);
-		}
-		if(die5.className=="Die CheckedDie" && die5.innerHTML=="4")
-		{
-			pointSum=+pointSum+parseInt(die5.innerHTML);
-		}
-		
-		var t = document.getElementById("scoreBoard"), // This have to be the ID of your table, not the tag
-			d = t.getElementsByTagName("tr")[4],
-			r = d.getElementsByTagName("td")[currentPlayer];
-		
-			r.innerHTML=pointSum;
-			r.style.backgroundColor="#70db70";
-	}
-}
-function checkFor5()
-{
-	pointSum=0;
-	
-	
-	if(rollCount<0)
-	{
-		//alert player to roll first		
-	}
-	else
-	{
-		if(die1.className=="Die CheckedDie" && die1.innerHTML=="5")
-		{
-			pointSum=+pointSum+parseInt(die1.innerHTML);
-		}
-		if(die2.className=="Die CheckedDie" && die2.innerHTML=="5")
-		{
-			pointSum=+pointSum+parseInt(die2.innerHTML);
-		}
-		if(die3.className=="Die CheckedDie" && die3.innerHTML=="5")
-		{
-			pointSum=+pointSum+parseInt(die3.innerHTML);
-		}
-		if(die4.className=="Die CheckedDie" && die4.innerHTML=="5")
-		{
-			pointSum=+pointSum+parseInt(die4.innerHTML);
-		}
-		if(die5.className=="Die CheckedDie" && die5.innerHTML=="5")
-		{
-			pointSum=+pointSum+parseInt(die5.innerHTML);
-		}
-		
-		var t = document.getElementById("scoreBoard"), // This have to be the ID of your table, not the tag
-			d = t.getElementsByTagName("tr")[5],
-			r = d.getElementsByTagName("td")[currentPlayer];
-		
-			r.innerHTML=pointSum;
-			r.style.backgroundColor="#70db70";
-	}
-}
-function checkFor6()
-{
-	pointSum=0;
-	
-	
-	if(rollCount<0)
-	{
-		//alert player to roll first		
-	}
-	else
-	{
-		if(die1.className=="Die CheckedDie" && die1.innerHTML=="6")
-		{
-			pointSum=+pointSum+parseInt(die1.innerHTML);
-		}
-		if(die2.className=="Die CheckedDie" && die2.innerHTML=="6")
-		{
-			pointSum=+pointSum+parseInt(die2.innerHTML);
-		}
-		if(die3.className=="Die CheckedDie" && die3.innerHTML=="6")
-		{
-			pointSum=+pointSum+parseInt(die3.innerHTML);
-		}
-		if(die4.className=="Die CheckedDie" && die4.innerHTML=="6")
-		{
-			pointSum=+pointSum+parseInt(die4.innerHTML);
-		}
-		if(die5.className=="Die CheckedDie" && die5.innerHTML=="6")
-		{
-			pointSum=+pointSum+parseInt(die5.innerHTML);
-		}
-		
-		var t = document.getElementById("scoreBoard"), // This have to be the ID of your table, not the tag
-			d = t.getElementsByTagName("tr")[6],
-			r = d.getElementsByTagName("td")[currentPlayer];
-		
-			r.innerHTML=pointSum;
-			r.style.backgroundColor="#70db70";
-	}
 }
 function checkForOnePair(){}
 function checkForTwoPair(){}
@@ -405,7 +218,15 @@ function checkForYatzy(){}
 
 
 
-
+function addPointsToTable(points, currentPlayer, row)
+{
+	var t = document.getElementById("scoreBoard"), // This have to be the ID of your table, not the tag
+				d = t.getElementsByTagName("tr")[row],
+				r = d.getElementsByTagName("td")[currentPlayer];
+		
+				r.innerHTML=points;
+				r.style.backgroundColor="#70db70";
+}
 
 // create DIV element and append to the table cell
 function createCell(cell, text, style) {
@@ -417,7 +238,7 @@ function createCell(cell, text, style) {
     cell.appendChild(div);                   // append DIV to the table cell
 }
 
-var pointSum=0;
+
 
 function AddEyes(){
 	if(rollCount<0)
