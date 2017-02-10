@@ -80,8 +80,6 @@
 					
 					<button class="standardBtn" type="button" onclick="RollDice()">Roll dice</button>
 				
-					
-					<button class="standardBtn" type="button" style="bottom:15px"onclick="EndTurn()">Call</button>
 				</div>
 					
 				<div id="divScoreBoard">
@@ -92,87 +90,87 @@
 						</tr>
 						<tr>
 							<td>
-								<button id="c1" class="ChoiceBtn" onclick="checkFor1()">1</button>
+								<button id="c1" class="ChoiceBtn" onclick="checkFor1(); EndTurn()">1</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="c2" class="ChoiceBtn" onclick="checkFor2()">2</button>
+								<button id="c2" class="ChoiceBtn" onclick="checkFor2(); EndTurn()">2</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="c3" class="ChoiceBtn" onclick="checkFor3()">3</button>
+								<button id="c3" class="ChoiceBtn" onclick="checkFor3(); EndTurn()">3</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="c4" class="ChoiceBtn" onclick="checkFor4()">4</button>
+								<button id="c4" class="ChoiceBtn" onclick="checkFor4(); EndTurn()">4</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="c5" class="ChoiceBtn" onclick="checkFor5()">5</button>
+								<button id="c5" class="ChoiceBtn" onclick="checkFor5(); EndTurn()">5</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="c6" class="ChoiceBtn" onclick="checkFor6()">6</button>
+								<button id="c6" class="ChoiceBtn" onclick="checkFor6(); EndTurn()">6</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<p>Sum</p>
+								<p id="cSum">Sum</p>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="cBonus" class="ChoiceBtn" ">Bonus</button>
+								<p id="cBonus">Bonus</p>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="cOnePair" class="ChoiceBtn" onclick="checkForOnePair()">One Pair</button>
+								<button id="cOnePair" class="ChoiceBtn" onclick="checkForOnePair(); EndTurn()">One Pair</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="cTwoPair" class="ChoiceBtn" onclick="checkForTwoPair()">Two Pair</button>
+								<button id="cTwoPair" class="ChoiceBtn" onclick="checkForTwoPair(); EndTurn()">Two Pair</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="cThreeOfAKind" class="ChoiceBtn" onclick="checkForThreeOfAKind()">Three of a kind</button>
+								<button id="cThreeOfAKind" class="ChoiceBtn" onclick="checkForThreeOfAKind(); EndTurn()">Three of a kind</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="cFourOfAKind" class="ChoiceBtn" onclick="checkForFourOfAKind()">Four of a kind</button>
+								<button id="cFourOfAKind" class="ChoiceBtn" onclick="checkForFourOfAKind(); EndTurn()">Four of a kind</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="cLow" class="ChoiceBtn" onclick="checkForLowStrait()">low strait</button>
+								<button id="cLow" class="ChoiceBtn" onclick="checkForLowStrait(); EndTurn()">low strait</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="cHigh" class="ChoiceBtn" onclick="checkForHighStrait()">High strait</button>
+								<button id="cHigh" class="ChoiceBtn" onclick="checkForHighStrait(); EndTurn()">High strait</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="cFullHouse" class="ChoiceBtn" onclick="checkForFullHouse()">Full House</button>
+								<button id="cFullHouse" class="ChoiceBtn" onclick="checkForFullHouse(); EndTurn()">Full House</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="cChance" class="ChoiceBtn" onclick="checkForChance()">Chance</button>
+								<button id="cChance" class="ChoiceBtn" onclick="checkForChance(); EndTurn()">Chance</button>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button id="cYatzy" class="ChoiceBtn" onclick="checkForYatzy()">Yatzy</button>
+								<button id="cYatzy" class="ChoiceBtn" onclick="checkForYatzy(); EndTurn()">Yatzy</button>
 							</td>
 						</tr>
 						<tr>

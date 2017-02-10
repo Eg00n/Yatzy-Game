@@ -96,6 +96,9 @@ function SetPlayers(amount){
 
 function EndTurn()
 {
+	//change player
+	if(rollcount>0)
+	{
 	if(currentPlayer<amountOfPlayers){
 	currentPlayer=++currentPlayer;
 	}
@@ -104,6 +107,7 @@ function EndTurn()
 	}
 	document.getElementById("currentPlayer").innerHTML = currentPlayer;
 	
+	//reset dice
 	document.getElementById("die1").className = "Die";
 	document.getElementById("die2").className = "Die";
 	document.getElementById("die3").className = "Die";
@@ -116,9 +120,13 @@ function EndTurn()
 	die4.innerHTML=0;
 	die5.innerHTML=0;
 	
-	
+	//reset rollcounter
 	 rollCount=0;
+	 
+	//save choice in table
 	
+	
+	}
 }
 
 
@@ -141,8 +149,12 @@ function appendColumn() {
 	}
 }
 
+//boolean onlyOneChecked = false;
+
 function checkFor1()
 {
+	if(onlyOneChecked=false)
+	{
 	pointSum=0;
 	if(rollCount<0)
 	{
@@ -171,12 +183,15 @@ function checkFor1()
 			pointSum=+pointSum+parseInt(die5.innerHTML);
 		}
 		
+		 
+		
 		var t = document.getElementById("scoreBoard"), // This have to be the ID of your table, not the tag
 			d = t.getElementsByTagName("tr")[1],
 			r = d.getElementsByTagName("td")[currentPlayer];
 		
 			r.innerHTML=pointSum;
 			r.style.backgroundColor="#70db70";
+	}
 	}	
 }
 function checkFor2()
@@ -224,7 +239,7 @@ function checkFor3()
 	pointSum=0;
 	
 	
-	if(rollCount<0)
+	if(rollCount=0)
 	{
 		//alert player to roll first		
 	}
