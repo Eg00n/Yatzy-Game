@@ -161,55 +161,36 @@ var ZeroPointConfirmed=0;
 var ZeroPointChoiceConfirmed=0;
 var bonuspoints=50;
 
-function checkFor(eyes)
+function checkFor(row)
 {
 	pointSum=0;
 	if(rollCount!=0)
 	{
-			if(die1.className=="Die CheckedDie" && die1.innerHTML==eyes)
-			{
-				pointSum=+pointSum+parseInt(die1.innerHTML);
-			}
-			if(die2.className=="Die CheckedDie" && die2.innerHTML==eyes)
-			{
-				pointSum=+pointSum+parseInt(die2.innerHTML);
-			}
-			if(die3.className=="Die CheckedDie" && die3.innerHTML==eyes)
-			{
-				pointSum=+pointSum+parseInt(die3.innerHTML);
-			}
-			if(die4.className=="Die CheckedDie" && die4.innerHTML==eyes)
-			{
-				pointSum=+pointSum+parseInt(die4.innerHTML);
-			}
-			if(die5.className=="Die CheckedDie" && die5.innerHTML==eyes)
-			{
-				pointSum=+pointSum+parseInt(die5.innerHTML);
-			}
+		pointSum=checkForEyes(row);
 
 		//checks if points is already given for field
-		if(GetPointsFromSingleRowInTable(currentPlayer,eyes)==0)
+		if(GetPointsFromSingleRowInTable(currentPlayer,row)==0)
 		{
 	
 			//checks for any checked dice
 			if(pointSum==0)
 			{
 				//checks for zero points confirmation
-				if(ZeroPointConfirmed==1&&ZeroPointChoiceConfirmed==eyes)
+				if(ZeroPointConfirmed==1&&ZeroPointChoiceConfirmed==row)
 				{
-					addPointsToTable(pointSum, currentPlayer, eyes);
+					addPointsToTable(pointSum, currentPlayer, row);
 					EndTurn();
 				}
 				else
 				{
 				document.getElementById("message").innerHTML="Are you sure you want to commit 0 points? <br>- Click choice again if you are";
 				ZeroPointConfirmed++; 
-				ZeroPointChoiceConfirmed=eyes;
+				ZeroPointChoiceConfirmed=row;
 				}
 			}
 			else
 			{
-				addPointsToTable(pointSum, currentPlayer, eyes);
+				addPointsToTable(pointSum, currentPlayer, row);
 				EndTurn();
 			}
 		}
@@ -223,8 +204,38 @@ function checkFor(eyes)
 		document.getElementById("message").innerHTML="You have to roll first!";
 	}
 }
-function checkForOnePair(){}
-function checkForTwoPair(){}
+function checkForEyes(row)
+{
+	if(die1.className=="Die CheckedDie" && die1.innerHTML==row)
+	{
+		pointSum=+pointSum+parseInt(die1.innerHTML);
+	}
+	if(die2.className=="Die CheckedDie" && die2.innerHTML==row)
+	{
+		pointSum=+pointSum+parseInt(die2.innerHTML);
+	}
+	if(die3.className=="Die CheckedDie" && die3.innerHTML==row)
+	{
+		pointSum=+pointSum+parseInt(die3.innerHTML);
+	}
+	if(die4.className=="Die CheckedDie" && die4.innerHTML==row)
+	{
+		pointSum=+pointSum+parseInt(die4.innerHTML);
+	}
+	if(die5.className=="Die CheckedDie" && die5.innerHTML==row)
+	{
+		pointSum=+pointSum+parseInt(die5.innerHTML);
+	}
+	return pointSum;
+}
+function checkForOnePair(row)
+{
+	var onePairRow =9;
+}
+function checkForTwoPair()
+{
+	var twoPairRow =10;
+}
 function checkForThreeOfAKind(){}
 function checkForFourOfAKind(){}
 function checkForLow(){}
@@ -306,7 +317,7 @@ function createCell(cell, text, style) {
 }
 
 
-function AddEyes(){
+function Addrow(){
 	if(rollCount<0)
 	{
 		//alert player to roll first		
