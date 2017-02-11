@@ -161,13 +161,10 @@ var ZeroPointConfirmed=0;
 var ZeroPointChoiceConfirmed=0;
 var bonuspoints=50;
 
-function checkFor(row)
+function Check(row, pointSum)
 {
-	pointSum=0;
 	if(rollCount!=0)
 	{
-		pointSum=checkForEyes(row);
-
 		//checks if points is already given for field
 		if(GetPointsFromSingleRowInTable(currentPlayer,row)==0)
 		{
@@ -206,6 +203,8 @@ function checkFor(row)
 }
 function checkForEyes(row)
 {
+pointSum=0;
+
 	if(die1.className=="Die CheckedDie" && die1.innerHTML==row)
 	{
 		pointSum=+pointSum+parseInt(die1.innerHTML);
@@ -226,7 +225,7 @@ function checkForEyes(row)
 	{
 		pointSum=+pointSum+parseInt(die5.innerHTML);
 	}
-	return pointSum;
+	Check(row, pointSum);
 }
 function checkForOnePair(row)
 {
