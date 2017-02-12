@@ -137,24 +137,7 @@ function EndTurn()
 }
 
 
-// append column to the HTML table
-function appendColumn() {
-	for	(j=0; j<amountOfPlayers;j++)
-	{
-		var tbl = document.getElementById('scoreBoard'), // table reference
-			i;
-		// open loop for each row and append cell
-		for (i = 0; i < tbl.rows.length; i++) {
-			if(i==0){
-				createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), "Player "+ (1+j), 'tdScoreBoard');
-			}
-			else
-			{
-				createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), " " , 'tdScoreBoard');
-			}
-		}
-	}
-}
+//Checks
 
 var pointSum=0;
 var ZeroPointConfirmed=0; 
@@ -227,9 +210,79 @@ pointSum=0;
 	}
 	Check(row, pointSum);
 }
-function checkForOnePair(row)
+function checkForOnePair()
 {
 	var onePairRow =9;
+	var pair = 0;
+	
+	pair = 0;
+	
+	if(die1.className=="Die CheckedDie")
+	{
+		pair = parseInt(die1.innerHTML);
+	
+		if(die2.className=="Die CheckedDie" && die2.innerHTML==pair)
+		{
+			pair = pair+parseInt(die2.innerHTML);
+		}
+		if(die3.className=="Die CheckedDie" && die3.innerHTML==pair)
+		{
+			pair = pair+parseInt(die3.innerHTML);
+		}
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==pair)
+		{
+			pair = pair+parseInt(die4.innerHTML);
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==pair)
+		{
+			pair = pair+parseInt(die5.innerHTML);
+		}
+	}
+
+	else if(die2.className=="Die CheckedDie")
+	{
+		pair = parseInt(die2.innerHTML);
+	
+		if(die3.className=="Die CheckedDie" && die3.innerHTML==pair)
+		{
+			pair = pair+parseInt(die3.innerHTML);
+		}
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==pair)
+		{
+			pair = pair+parseInt(die4.innerHTML);
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==pair)
+		{
+			pair = pair+parseInt(die5.innerHTML);
+		}
+	}
+	
+	else if(die3.className=="Die CheckedDie")
+	{
+		pair = parseInt(die3.innerHTML);
+	
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==pair)
+		{
+			pair = pair+parseInt(die4.innerHTML);
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==pair)
+		{
+			pair = pair+parseInt(die5.innerHTML);
+		}
+	}
+	
+	else if(die4.className=="Die CheckedDie")
+	{
+		pair = parseInt(die4.innerHTML);
+	
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==pair)
+		{
+			pair = pair+parseInt(die5.innerHTML);
+		}
+	}
+	
+	Check(onePairRow, pair);
+	
 }
 function checkForTwoPair()
 {
@@ -247,8 +300,10 @@ function UpdateSum(currentPlayer)
 {
 	var row=7;
 	var sum = GetPointsFromTable(currentPlayer);
-	
+	if(sum!=0)
+	{
 	addPointsToTable(sum,currentPlayer,row);
+	}
 }
 
 function CheckForBonus(currentPlayer){	
@@ -258,6 +313,9 @@ function CheckForBonus(currentPlayer){
 		addPointsToTable(bonuspoints,currentPlayer,bonusRow)
 	}
 }
+
+//-- Work with Table
+
 
 function GetPointsFromTable(currentPlayer)
 {
@@ -305,6 +363,28 @@ function addPointsToTable(points, currentPlayer, row)
 				r.style.backgroundColor="#70db70";
 }
 
+
+//--Create Table
+
+// append column to the HTML table
+function appendColumn() {
+	for	(j=0; j<amountOfPlayers;j++)
+	{
+		var tbl = document.getElementById('scoreBoard'), // table reference
+			i;
+		// open loop for each row and append cell
+		for (i = 0; i < tbl.rows.length; i++) {
+			if(i==0){
+				createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), "Player "+ (1+j), 'tdScoreBoard');
+			}
+			else
+			{
+				createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), " " , 'tdScoreBoard');
+			}
+		}
+	}
+}
+
 // create DIV element and append to the table cell
 function createCell(cell, text, style) {
     var div = document.createElement('div'), // create DIV element
@@ -314,39 +394,4 @@ function createCell(cell, text, style) {
     div.setAttribute('className', style);    // set DIV class attribute for IE (?!)
     cell.appendChild(div);                   // append DIV to the table cell
 }
-
-
-function Addrow(){
-	if(rollCount<0)
-	{
-		//alert player to roll first		
-	}
-	else
-	{
-		if(die1.className=="Die CheckedDie")
-		{
-			pointSum=+pointSum+parseInt(die1.innerHTML);
-		}
-		if(die2.className=="Die CheckedDie")
-		{
-			pointSum=+pointSum+parseInt(die2.innerHTML);
-		}
-		if(die3.className=="Die CheckedDie")
-		{
-			pointSum=+pointSum+parseInt(die3.innerHTML);
-		}
-		if(die4.className=="Die CheckedDie")
-		{
-			pointSum=+pointSum+parseInt(die4.innerHTML);
-		}
-		if(die5.className=="Die CheckedDie")
-		{
-			pointSum=+pointSum+parseInt(die5.innerHTML);
-		}
-		
-		document.getElementById("sum").innerHTML=pointSum;
-		
-	}	
-}
-
 
