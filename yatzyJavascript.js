@@ -454,7 +454,7 @@ function checkForTwoPair()
 }
 function checkForThreeOfAKind()
 {
-	var threeOfAKindRoW =11;
+	var threeOfAKindRow =11;
 	var triple = 0;
 	var tripleSum = 0;
 	
@@ -535,13 +535,128 @@ function checkForThreeOfAKind()
 
 	if(count == 3)
 	{
-	Check(threeOfAKindRoW, tripleSum);
+	Check(threeOfAKindRow, tripleSum);
 	}
 	
 }
-function checkForFourOfAKind(){}
-function checkForLow(){}
-function checkForHigh(){}
+function checkForFourOfAKind()
+{
+	var fourOfAKindRow =12;
+	var triple = 0;
+	var tripleSum = 0;
+	
+	var count= 0;
+	
+	triple = 0;
+	tripleSum = 0;
+	count=0;
+	
+	if(die1.className=="Die CheckedDie")
+	{
+		quader = parseInt(die1.innerHTML);
+		count++;
+		quadSum= quader;
+	
+		if(die2.className=="Die CheckedDie" && die2.innerHTML==quader)
+		{
+			quadSum = quadSum+parseInt(die2.innerHTML);
+			count++;
+		}
+		if(die3.className=="Die CheckedDie" && die3.innerHTML==quader)
+		{
+			quadSum = quadSum+parseInt(die3.innerHTML);
+			count++;
+		}
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==quader)
+		{
+			quadSum = quadSum+parseInt(die4.innerHTML);
+			count++;
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==quader)
+		{
+			quadSum = quadSum+parseInt(die5.innerHTML);
+			count++;
+		}
+	}
+
+	else if(die2.className=="Die CheckedDie")
+	{
+		quader = parseInt(die2.innerHTML);
+		count++;
+		quadSum= quader;
+		
+		if(die3.className=="Die CheckedDie" && die3.innerHTML==quader)
+		{
+			quadSum = quadSum+parseInt(die3.innerHTML);
+			count++;
+		}
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==quader)
+		{
+			quadSum = quadSum+parseInt(die4.innerHTML);
+			count++;
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==quader)
+		{
+			quadSum = quadSum+parseInt(die5.innerHTML);
+			count++;
+		}
+	}
+	
+	if(count == 4)
+	{
+	Check(fourOfAKindRow, quadSum);
+	}
+	
+}
+function checkForLow()
+{
+	var lowRow =13;
+	
+	lowPoint = 0;
+	
+	if(parseInt(die1.innerHTML) == 1 || parseInt(die2.innerHTML) == 1 ||parseInt(die3.innerHTML) == 1 ||parseInt(die4.innerHTML) == 1 || parseInt(die5.innerHTML) == 1)
+	{
+		if(parseInt(die1.innerHTML) == 2 || parseInt(die2.innerHTML) == 2 ||parseInt(die3.innerHTML) == 2 ||parseInt(die4.innerHTML) == 2 || parseInt(die5.innerHTML) == 2)
+		{
+			if(parseInt(die1.innerHTML) == 3 || parseInt(die2.innerHTML) == 3 ||parseInt(die3.innerHTML) == 3 ||parseInt(die4.innerHTML) == 3 || parseInt(die5.innerHTML) == 3)
+			{
+				if(parseInt(die1.innerHTML) == 4 || parseInt(die2.innerHTML) == 4 ||parseInt(die3.innerHTML) == 4 ||parseInt(die4.innerHTML) == 4 || parseInt(die5.innerHTML) == 4)
+				{
+					if(parseInt(die1.innerHTML) == 5 || parseInt(die2.innerHTML) == 5 ||parseInt(die3.innerHTML) == 5 ||parseInt(die4.innerHTML) == 5 || parseInt(die5.innerHTML) == 5)
+					{
+						lowPoint = 15;
+					}
+				}
+			}
+		}
+	}
+	Check(lowRow, lowPoint);
+}
+function checkForHigh()
+{
+	var highRow =14;
+	
+	highPoint = 0;
+	
+	
+	if(parseInt(die1.innerHTML) == 2 || parseInt(die2.innerHTML) == 2 ||parseInt(die3.innerHTML) == 2 ||parseInt(die4.innerHTML) == 2 || parseInt(die5.innerHTML) == 2)
+	{
+		if(parseInt(die1.innerHTML) == 3 || parseInt(die2.innerHTML) == 3 ||parseInt(die3.innerHTML) == 3 ||parseInt(die4.innerHTML) == 3 || parseInt(die5.innerHTML) == 3)
+		{
+			if(parseInt(die1.innerHTML) == 4 || parseInt(die2.innerHTML) == 4 ||parseInt(die3.innerHTML) == 4 ||parseInt(die4.innerHTML) == 4 || parseInt(die5.innerHTML) == 4)
+			{
+				if(parseInt(die1.innerHTML) == 5 || parseInt(die2.innerHTML) == 5 ||parseInt(die3.innerHTML) == 5 ||parseInt(die4.innerHTML) == 5 || parseInt(die5.innerHTML) == 5)
+				{
+					if(parseInt(die1.innerHTML) == 6 || parseInt(die2.innerHTML) == 6 ||parseInt(die3.innerHTML) == 6 ||parseInt(die4.innerHTML) == 6 || parseInt(die5.innerHTML) == 6)
+					{
+						highPoint = 20;
+					}
+				}
+			}
+		}
+	}
+	Check(highRow, highPoint);
+}
 function checkForHouse(){}
 function checkForChance(){}
 function checkForYatzy(){}
