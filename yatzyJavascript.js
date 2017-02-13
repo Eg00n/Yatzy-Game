@@ -805,8 +805,53 @@ function checkForHouse()
 	Check(houseRow, sum);
 	}
 }
-function checkForChance(){}
-function checkForYatzy(){}
+function checkForChance()
+{
+	var chanceRow = 16;
+	var sum = 0;
+	sum = 0;
+
+	sum = parseInt(die1.innerHTML)+ parseInt(die2.innerHTML)+parseInt(die3.innerHTML)+parseInt(die4.innerHTML)+parseInt(die5.innerHTML);
+	
+	Check(chanceRow, sum);
+}
+function checkForYatzy()
+{
+	var yatzyRow = 17;
+	var sum = 0;
+	sum = 0;
+	
+	if(parseInt(die1.innerHTML) == 1 && parseInt(die2.innerHTML) == 1 && parseInt(die3.innerHTML) == 1 && parseInt(die4.innerHTML) == 1 && parseInt(die5.innerHTML) == 1)
+	{
+		sum = 5;
+	}
+	if(parseInt(die1.innerHTML) == 2 && parseInt(die2.innerHTML) == 2 && parseInt(die3.innerHTML) == 2 && parseInt(die4.innerHTML) == 2 && parseInt(die5.innerHTML) == 2)
+	{
+		sum = 10;
+	}
+	if(parseInt(die1.innerHTML) == 3 && parseInt(die2.innerHTML) == 3 && parseInt(die3.innerHTML) == 3 && parseInt(die4.innerHTML) == 3 && parseInt(die5.innerHTML) == 3)
+	{
+		sum = 15;
+	}
+	if(parseInt(die1.innerHTML) == 4 && parseInt(die2.innerHTML) == 4 && parseInt(die3.innerHTML) == 4 && parseInt(die4.innerHTML) == 4 && parseInt(die5.innerHTML) == 4)
+	{
+		sum = 20;
+	}
+	if(parseInt(die1.innerHTML) == 5 && parseInt(die2.innerHTML) == 5 && parseInt(die3.innerHTML) == 5 && parseInt(die4.innerHTML) == 5 && parseInt(die5.innerHTML) == 5)
+	{
+		sum = 25;
+	}
+	if(parseInt(die1.innerHTML) == 6 && parseInt(die2.innerHTML) == 6 && parseInt(die3.innerHTML) == 6 && parseInt(die4.innerHTML) == 6 && parseInt(die5.innerHTML) == 6)
+	{
+		sum = 30;
+	}
+	
+	if(sum != 0)
+	{
+		Check(yatzyRow, sum);
+	}
+	
+}
 
 function UpdateSum(currentPlayer)
 {
