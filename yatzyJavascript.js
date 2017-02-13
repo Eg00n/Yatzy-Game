@@ -287,6 +287,167 @@ function checkForOnePair()
 function checkForTwoPair()
 {
 	var twoPairRow =10;
+	
+	var sum = 0;
+	var pair1 = 0;
+	var pair2 = 0;
+	
+	var pairSum1 = 0;
+	var pairSum2 = 0;
+	
+	pair1 = 0;
+	pair2 = 0; 
+	
+	pairSum1 = 0;
+	pairSum2 = 0;
+	// check for first pair
+	
+	if(die1.className=="Die CheckedDie")
+	{
+		pair1 = parseInt(die1.innerHTML);
+		pairSum1 = pairSum1 + pair1;
+	
+		if(die2.className=="Die CheckedDie" && die2.innerHTML==pairSum1)
+		{
+			pairSum1 = pairSum1 + parseInt(die2.innerHTML);
+		}
+		if(die3.className=="Die CheckedDie" && die3.innerHTML==pairSum1)
+		{
+			pairSum1 = pairSum1 + parseInt(die3.innerHTML);
+		}
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==pairSum1)
+		{
+			pairSum1 = pairSum1 + parseInt(die4.innerHTML);
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==pairSum1)
+		{
+			pairSum1 = pairSum1 + parseInt(die5.innerHTML);
+		}
+	}
+
+	else if(die2.className=="Die CheckedDie")
+	{
+		pair1 = parseInt(die2.innerHTML);
+		pairSum1 = pairSum1 + pair1;
+	
+		if(die3.className=="Die CheckedDie" && die3.innerHTML==pairSum1)
+		{
+			pairSum1 = pairSum1 + parseInt(die3.innerHTML);
+		}
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==pairSum1)
+		{
+			pairSum1 = pairSum1 + parseInt(die4.innerHTML);
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==pairSum1)
+		{
+			pairSum1 = pairSum1 + parseInt(die5.innerHTML);
+		}
+	}
+	
+	else if(die3.className=="Die CheckedDie")
+	{
+		pair1 = parseInt(die3.innerHTML);
+		pairSum1 = pairSum1 + pair1;
+		
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==pairSum1)
+		{
+			pairSum1 = pairSum1 + parseInt(die4.innerHTML);
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==pairSum1)
+		{
+			pairSum1 = pairSum1 + parseInt(die5.innerHTML);
+		}
+	}
+	
+	else if(die4.className=="Die CheckedDie")
+	{
+		pair1 = parseInt(die4.innerHTML);
+		pairSum1 = pairSum1 + pair1;
+		
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==pairSum1)
+		{
+			pairSum1 = pairSum1 + parseInt(die5.innerHTML);
+		}
+	}
+	
+	
+	// check for second pair
+	
+	if(die1.className=="Die CheckedDie" && parseInt(die1.innerHTML)!= pair1)
+	{
+		pair2 = parseInt(die1.innerHTML);
+		pairSum2 = pairSum2 + pair2;
+		
+		if(die2.className=="Die CheckedDie" && die2.innerHTML==pairSum2)
+		{
+			pairSum2 = pairSum2 + parseInt(die2.innerHTML);
+		}
+		if(die3.className=="Die CheckedDie" && die3.innerHTML==pairSum2)
+		{
+			pairSum2 = pairSum2 + parseInt(die3.innerHTML);
+		}
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==pairSum2)
+		{
+			pairSum2 = pairSum2 + parseInt(die4.innerHTML);
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==pairSum2)
+		{
+			pairSum2 = pairSum2 + parseInt(die5.innerHTML);
+		}
+	}
+
+	else if(die2.className=="Die CheckedDie"&& parseInt(die2.innerHTML)!=pair1)
+	{
+		pair2 = parseInt(die2.innerHTML);
+		pairSum2 = pairSum2 + pair2;
+		
+		if(die3.className=="Die CheckedDie" && die3.innerHTML==pairSum2)
+		{
+			pairSum2 = pairSum2 + parseInt(die3.innerHTML);
+		}
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==pairSum2)
+		{
+			pairSum2 = pairSum2 + parseInt(die4.innerHTML);
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==pairSum2)
+		{
+			pairSum2 = pairSum2 + parseInt(die5.innerHTML);
+		}
+	}
+	
+	else if(die3.className=="Die CheckedDie"&& parseInt(die3.innerHTML)!=pair1)
+	{
+		pair2 = parseInt(die3.innerHTML);
+		pairSum2 = pairSum2 + pair2;
+		
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==pairSum2)
+		{
+			pairSum2 = pairSum2 + parseInt(die4.innerHTML);
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==pairSum2)
+		{
+			pairSum2 = pairSum2 + parseInt(die5.innerHTML);
+		}
+	}
+	
+	else if(die4.className=="Die CheckedDie"&& parseInt(die4.innerHTML)!=pair1)
+	{
+		pair2 = parseInt(die4.innerHTML);
+		pairSum2 = pairSum2 + pair2;
+		
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==pairSum2)
+		{
+			pairSum2 = pairSum2 + parseInt(die5.innerHTML);
+		}
+	}
+	
+	
+	//checks if any of the pairs aren't approved
+	if(pairSum1!=0 && pairSum2!=0){
+		sum = pairSum1 + pairSum2;
+	}
+	
+	Check(twoPairRow, sum);
 }
 function checkForThreeOfAKind(){}
 function checkForFourOfAKind(){}
