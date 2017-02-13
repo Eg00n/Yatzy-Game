@@ -300,6 +300,9 @@ function checkForTwoPair()
 	
 	pairSum1 = 0;
 	pairSum2 = 0;
+	
+	sum = 0;
+	
 	// check for first pair
 	
 	if(die1.className=="Die CheckedDie")
@@ -449,7 +452,10 @@ function checkForTwoPair()
 	
 	Check(twoPairRow, sum);
 }
-function checkForThreeOfAKind(){}
+function checkForThreeOfAKind()
+{
+	
+}
 function checkForFourOfAKind(){}
 function checkForLow(){}
 function checkForHigh(){}
