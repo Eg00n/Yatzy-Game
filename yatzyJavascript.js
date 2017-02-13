@@ -454,6 +454,89 @@ function checkForTwoPair()
 }
 function checkForThreeOfAKind()
 {
+	var threeOfAKindRoW =11;
+	var triple = 0;
+	var tripleSum = 0;
+	
+	var count= 0;
+	
+	triple = 0;
+	tripleSum = 0;
+	count=0;
+	
+	if(die1.className=="Die CheckedDie")
+	{
+		triple = parseInt(die1.innerHTML);
+		count++;
+		tripleSum= triple;
+	
+		if(die2.className=="Die CheckedDie" && die2.innerHTML==triple)
+		{
+			tripleSum = tripleSum+parseInt(die2.innerHTML);
+			count++;
+		}
+		if(die3.className=="Die CheckedDie" && die3.innerHTML==triple)
+		{
+			tripleSum = tripleSum+parseInt(die3.innerHTML);
+			count++;
+		}
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==triple)
+		{
+			tripleSum = tripleSum+parseInt(die4.innerHTML);
+			count++;
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==triple)
+		{
+			tripleSum = tripleSum+parseInt(die5.innerHTML);
+			count++;
+		}
+	}
+
+	else if(die2.className=="Die CheckedDie")
+	{
+		triple = parseInt(die2.innerHTML);
+		count++;
+		tripleSum= triple;
+		
+		if(die3.className=="Die CheckedDie" && die3.innerHTML==triple)
+		{
+			tripleSum = tripleSum+parseInt(die3.innerHTML);
+			count++;
+		}
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==triple)
+		{
+			tripleSum = tripleSum+parseInt(die4.innerHTML);
+			count++;
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==triple)
+		{
+			tripleSum = tripleSum+parseInt(die5.innerHTML);
+			count++;
+		}
+	}
+	
+	else if(die3.className=="Die CheckedDie")
+	{
+		triple = parseInt(die3.innerHTML);
+		count++;
+		tripleSum= triple;
+		
+		if(die4.className=="Die CheckedDie" && die4.innerHTML==triple)
+		{
+			tripleSum = tripleSum+parseInt(die4.innerHTML);
+			count++;
+		}
+		if(die5.className=="Die CheckedDie" && die5.innerHTML==triple)
+		{
+			tripleSum = tripleSum+parseInt(die5.innerHTML);
+			count++;
+		}
+	}
+
+	if(count == 3)
+	{
+	Check(threeOfAKindRoW, tripleSum);
+	}
 	
 }
 function checkForFourOfAKind(){}
