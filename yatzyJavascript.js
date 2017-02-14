@@ -13,7 +13,9 @@ function ShowHighScoreDiv(){
 function ShowLoginDiv(){
 	document.getElementById("divMenu").style.display = "none"; 
 }
-//Gamefunctions
+
+
+//-- dice functions
 var rollCount=0;
 
 var die1 = 0;
@@ -21,6 +23,7 @@ var die2 = 0;
 var die3 = 0;
 var die4 = 0;
 var die5 = 0;
+
 
 function RollDice(){
 	if(rollCount<=2)
@@ -54,12 +57,7 @@ function RollDice(){
 		++rollCount;
 	}
 }
-/*var timeToShow = 0;
-function display() {
-	timeToShow++;
-	document.getElementById("time").innerHTML = timeToShow;
-	window.setTimeout(display, 1000);
-}*/
+
 function checkDie(id){
 	if(rollCount!=0)
 	{
@@ -70,13 +68,11 @@ function checkDie(id){
 	}
 }
 	
-	
-//playerfunctions
 
-var yatzyPoints = {1:0,2:0,3:0,4:0,5:0,6:0,bonus:0,onePair:0,twoPair:0,threeOfAKind:0, fourOfAKind:0,lowStrait:0,highStrait:0,fullHouse:0,chance:0,yatzy:0};	
+//-- Player functions
+	
 var amountOfPlayers=0;
 var currentPlayer=0;
-
 
 function SetPlayers(amount){
 	amountOfPlayers=amount;
@@ -93,6 +89,7 @@ function EndTurn()
 {
 	//Update table 
 	UpdateSum(currentPlayer);
+	UpdateWholeSum(currentPlayer);
 	CheckForBonus(currentPlayer);
 	
 	//change player
@@ -131,7 +128,10 @@ function EndTurn()
 	}
 }
 
-//Checks
+
+
+//-- Checks
+
 var pointSum=0;
 var ZeroPointConfirmed=0; 
 var ZeroPointChoiceConfirmed=0;
@@ -208,74 +208,84 @@ function checkForOnePair()
 	var onePairRow =9;
 	var pair = 0;
 	
+	var pairSum = 0;
+
 	pair = 0;
+	pairSum = 0;
 	
 	if(die1.className=="Die CheckedDie")
 	{
 		pair = parseInt(die1.innerHTML);
+		pairSum=pair;
 	
 		if(die2.className=="Die CheckedDie" && die2.innerHTML==pair)
 		{
-			pair = pair+parseInt(die2.innerHTML);
+			pairSum = pairSum+parseInt(die2.innerHTML);
 		}
 		if(die3.className=="Die CheckedDie" && die3.innerHTML==pair)
 		{
-			pair = pair+parseInt(die3.innerHTML);
+			pairSum = pairSum+parseInt(die3.innerHTML);
 		}
 		if(die4.className=="Die CheckedDie" && die4.innerHTML==pair)
 		{
-			pair = pair+parseInt(die4.innerHTML);
+			pairSum = pairSum+parseInt(die4.innerHTML);
 		}
 		if(die5.className=="Die CheckedDie" && die5.innerHTML==pair)
 		{
-			pair = pair+parseInt(die5.innerHTML);
+			pairSum = pairSum+parseInt(die5.innerHTML);
 		}
 	}
 
 	else if(die2.className=="Die CheckedDie")
 	{
 		pair = parseInt(die2.innerHTML);
+		pairSum=pair;
 	
 		if(die3.className=="Die CheckedDie" && die3.innerHTML==pair)
 		{
-			pair = pair+parseInt(die3.innerHTML);
+			pairSum = pairSum+parseInt(die3.innerHTML);
 		}
 		if(die4.className=="Die CheckedDie" && die4.innerHTML==pair)
 		{
-			pair = pair+parseInt(die4.innerHTML);
+			pairSum = pairSum+parseInt(die4.innerHTML);
 		}
 		if(die5.className=="Die CheckedDie" && die5.innerHTML==pair)
 		{
-			pair = pair+parseInt(die5.innerHTML);
+			pairSum = pairSum+parseInt(die5.innerHTML);
 		}
 	}
 	
 	else if(die3.className=="Die CheckedDie")
 	{
 		pair = parseInt(die3.innerHTML);
-	
+		pairSum = pair;
 		if(die4.className=="Die CheckedDie" && die4.innerHTML==pair)
 		{
-			pair = pair+parseInt(die4.innerHTML);
+			pairSum = pairSum+parseInt(die4.innerHTML);
 		}
 		if(die5.className=="Die CheckedDie" && die5.innerHTML==pair)
 		{
-			pair = pair+parseInt(die5.innerHTML);
+			pairSum = pairSum+parseInt(die5.innerHTML);
 		}
 	}
 	
 	else if(die4.className=="Die CheckedDie")
 	{
 		pair = parseInt(die4.innerHTML);
-	
+		pairSum=pair;
 		if(die5.className=="Die CheckedDie" && die5.innerHTML==pair)
 		{
-			pair = pair+parseInt(die5.innerHTML);
+			pairSum = pairSum+parseInt(die5.innerHTML);
 		}
 	}
 	
-	Check(onePairRow, pair);
-	
+	if(pairSum==pair*2 && pair != 0)
+	{
+	Check(onePairRow, pairSum);
+	}
+	else{
+		document.getElementById("message").innerHTML="Not valid input";
+	}
 }
 function checkForTwoPair()
 {
@@ -441,9 +451,13 @@ function checkForTwoPair()
 	//checks if any of the pairs aren't approved
 	if(pairSum1!=0 && pairSum2!=0){
 		sum = pairSum1 + pairSum2;
+		Check(twoPairRow, sum);
 	}
-	
-	Check(twoPairRow, sum);
+	else
+	{
+		document.getElementById("message").innerHTML="Not valid input";
+	}
+
 }
 function checkForThreeOfAKind()
 {
@@ -528,7 +542,10 @@ function checkForThreeOfAKind()
 
 	if(count == 3)
 	{
-	Check(threeOfAKindRow, tripleSum);
+		Check(threeOfAKindRow, tripleSum);
+	}
+	else{
+		document.getElementById("message").innerHTML="Not valid input";
 	}
 }
 function checkForFourOfAKind()
@@ -598,6 +615,10 @@ function checkForFourOfAKind()
 	{
 	Check(fourOfAKindRow, quadSum);
 	}
+	else
+	{
+		document.getElementById("message").innerHTML="Not valid input";	
+	}
 	
 }
 function checkForLow()
@@ -617,12 +638,33 @@ function checkForLow()
 					if(parseInt(die1.innerHTML) == 5 || parseInt(die2.innerHTML) == 5 ||parseInt(die3.innerHTML) == 5 ||parseInt(die4.innerHTML) == 5 || parseInt(die5.innerHTML) == 5)
 					{
 						lowPoint = 15;
+						Check(lowRow, lowPoint);
+					}
+					else
+					{
+						document.getElementById("message").innerHTML="Not valid input";	
 					}
 				}
+				else
+				{
+					document.getElementById("message").innerHTML="Not valid input";	
+				}
+			}
+			else
+			{
+				document.getElementById("message").innerHTML="Not valid input";	
 			}
 		}
+		else
+		{
+			document.getElementById("message").innerHTML="Not valid input";	
+		}
 	}
-	Check(lowRow, lowPoint);
+	else
+	{
+		document.getElementById("message").innerHTML="Not valid input";	
+	}
+	
 }
 function checkForHigh()
 {
@@ -642,12 +684,32 @@ function checkForHigh()
 					if(parseInt(die1.innerHTML) == 6 || parseInt(die2.innerHTML) == 6 ||parseInt(die3.innerHTML) == 6 ||parseInt(die4.innerHTML) == 6 || parseInt(die5.innerHTML) == 6)
 					{
 						highPoint = 20;
+						Check(highRow, highPoint);
+					}
+					else
+					{
+						document.getElementById("message").innerHTML="Not valid input";	
 					}
 				}
+				else
+				{
+					document.getElementById("message").innerHTML="Not valid input";	
+				}
+			}
+			else
+			{
+				document.getElementById("message").innerHTML="Not valid input";	
 			}
 		}
+		else
+		{
+			document.getElementById("message").innerHTML="Not valid input";	
+		}
 	}
-	Check(highRow, highPoint);
+	else
+	{
+		document.getElementById("message").innerHTML="Not valid input";	
+	}
 }
 function checkForHouse()
 {
@@ -800,9 +862,16 @@ function checkForHouse()
 			}
 		}
 		
-		var sum = tripleSum + pair;
 		
-	Check(houseRow, sum);
+		var sum = tripleSum + pair;
+		if(tripleSum != 0 && pair != 0)
+		{
+			Check(houseRow, sum);
+		}
+		else
+		{
+			document.getElementById("message").innerHTML="You have to roll first!";
+		}
 	}
 }
 function checkForChance()
@@ -813,7 +882,14 @@ function checkForChance()
 
 	sum = parseInt(die1.innerHTML)+ parseInt(die2.innerHTML)+parseInt(die3.innerHTML)+parseInt(die4.innerHTML)+parseInt(die5.innerHTML);
 	
+	if(sum != 0)
+	{
 	Check(chanceRow, sum);
+	}
+	else
+	{
+		document.getElementById("message").innerHTML="You have to roll first!";	
+	}
 }
 function checkForYatzy()
 {
@@ -823,40 +899,57 @@ function checkForYatzy()
 	
 	if(parseInt(die1.innerHTML) == 1 && parseInt(die2.innerHTML) == 1 && parseInt(die3.innerHTML) == 1 && parseInt(die4.innerHTML) == 1 && parseInt(die5.innerHTML) == 1)
 	{
-		sum = 5;
+		sum = 50;
 	}
 	if(parseInt(die1.innerHTML) == 2 && parseInt(die2.innerHTML) == 2 && parseInt(die3.innerHTML) == 2 && parseInt(die4.innerHTML) == 2 && parseInt(die5.innerHTML) == 2)
 	{
-		sum = 10;
+		sum = 50;
 	}
 	if(parseInt(die1.innerHTML) == 3 && parseInt(die2.innerHTML) == 3 && parseInt(die3.innerHTML) == 3 && parseInt(die4.innerHTML) == 3 && parseInt(die5.innerHTML) == 3)
 	{
-		sum = 15;
+		sum = 50;
 	}
 	if(parseInt(die1.innerHTML) == 4 && parseInt(die2.innerHTML) == 4 && parseInt(die3.innerHTML) == 4 && parseInt(die4.innerHTML) == 4 && parseInt(die5.innerHTML) == 4)
 	{
-		sum = 20;
+		sum = 50;
 	}
 	if(parseInt(die1.innerHTML) == 5 && parseInt(die2.innerHTML) == 5 && parseInt(die3.innerHTML) == 5 && parseInt(die4.innerHTML) == 5 && parseInt(die5.innerHTML) == 5)
 	{
-		sum = 25;
+		sum = 50;
 	}
 	if(parseInt(die1.innerHTML) == 6 && parseInt(die2.innerHTML) == 6 && parseInt(die3.innerHTML) == 6 && parseInt(die4.innerHTML) == 6 && parseInt(die5.innerHTML) == 6)
 	{
-		sum = 30;
+		sum = 50;
 	}
 	
 	if(sum != 0)
 	{
 		Check(yatzyRow, sum);
 	}
+	else
+	{
+		document.getElementById("message").innerHTML="You have to roll first!";
+	}
 	
 }
+
+
+//-- Work with Table
 
 function UpdateSum(currentPlayer)
 {
 	var row=7;
-	var sum = GetPointsFromTable(currentPlayer);
+	var sum = GetPointsFromNumTable(currentPlayer);
+	if(sum!=0)
+	{
+	addPointsToTable(sum,currentPlayer,row);
+	}
+}
+
+function UpdateWholeSum(currentPlayer)
+{
+	var row=18;
+	var sum = GetPointsFromWholeTable(currentPlayer);
 	if(sum!=0)
 	{
 	addPointsToTable(sum,currentPlayer,row);
@@ -865,16 +958,14 @@ function UpdateSum(currentPlayer)
 
 function CheckForBonus(currentPlayer){	
 	var bonusRow=8;
-	if(GetPointsFromTable(currentPlayer)>=63)
+	if(GetPointsFromNumTable(currentPlayer)>=63)
 	{
 		addPointsToTable(bonuspoints,currentPlayer,bonusRow)
 	}
 }
 
-//-- Work with Table
 
-
-function GetPointsFromTable(currentPlayer)
+function GetPointsFromNumTable(currentPlayer)
 {
 	var sum =0;
 	for(i=1;i<7;i++)
@@ -889,6 +980,27 @@ function GetPointsFromTable(currentPlayer)
 				pointNum=parseInt(r.innerHTML);
 			}
 			sum=sum+pointNum;
+	}
+	return sum;
+}
+
+function GetPointsFromWholeTable(currentPlayer)
+{
+	var sum =0;
+	for(i=1;i<18;i++)
+	{
+		if(i!=7){
+			var t = document.getElementById("scoreBoard"), // This have to be the ID of your table, not the tag
+			d = t.getElementsByTagName("tr")[i],
+			r = d.getElementsByTagName("td")[currentPlayer];
+			
+			var pointNum=0;
+			if(r.innerHTML!='<div class="tdScoreBoard" classname="tdScoreBoard"> </div>') //autogenerated so its all a innerHTML...
+			{
+				pointNum=parseInt(r.innerHTML);
+			}
+			sum=sum+pointNum;
+		}
 	}
 	return sum;
 }
