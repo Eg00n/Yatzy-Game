@@ -1064,3 +1064,10 @@ function createCell(cell, text, style) {
     cell.appendChild(div);                   // append DIV to the table cell
 }
 
+var timeToShow = 0;
+function display() {
+    timeToShow++;
+    document.getElementById("time").innerHTML = timeToShow;
+    window.setTimeout(display, 1000);
+}
+

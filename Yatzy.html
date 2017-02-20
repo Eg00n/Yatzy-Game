@@ -8,56 +8,31 @@
 	
 	<body style="background-color:gray">
 			
-		<div class="Header">
+		<div class="Header col-12">
 			<h1 style="text-align:center; font-family: courier;" >Yatzy Game</h1>
 		</div>
 		
-		<div class="boardDiv">
-			<div  id="divMenu" style="display:block">					
-				<table id="bottomList">
-					<tr>
-						<td>
-							<button class="standardBtn menuBtn" type="button" onclick="ShowAmountOfPlayersDiv()">Start Game</button>
-						</td>
-					</tr>
-					<tr>
-						<td>				
-							<button class="standardBtn menuBtn" type="button" onclick="ShowHighScoreDiv()">High score</button>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<button class="standardBtn menuBtn" type="button" onclick="ShowLoginDiv()">Login</button>
-						</td>
-					</tr>
-				</table> 
+		<div class="boardDiv col-12">
+			<div  id="divMenu" style="display:block">
+
+				<Img src="Images/IconDice.png" alt="dice icon" style="position:relavtive; border:20px solid white; width:100px; height:100px">
+			
+				<button class="standardBtn colBtn-Standard" type="button" onclick="ShowAmountOfPlayersDiv()">Start Game</button>
+				<button class="standardBtn colBtn-Standard" type="button" onclick="ShowHighScoreDiv()">High score</button>
+				<button class="standardBtn colBtn-Standard" type="button" onclick="ShowLoginDiv()">Login</button>
 			</div> 
 			
 			<div id="DivAmountOfPlayers" style="display:none"> 
 			
-				<table id="bottomList">
-					<tr>
-						<td>
-							<button class="standardBtn" type="button" onclick="SetPlayers(1); appendColumn(); ShowGameDiv()">1 Player</button>
-						</td>
-					</tr>
-					<tr>
-						<td>				
-							<button class="standardBtn" type="button" onclick="SetPlayers(2); appendColumn(); ShowGameDiv()">2 Player</button>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<button class="standardBtn" type="button" onclick="SetPlayers(3); appendColumn(); ShowGameDiv()">3 Player</button>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<button class="standardBtn" type="button" onclick="SetPlayers(4); appendColumn(); ShowGameDiv()">4 Player</button>
-						</td>
-					</tr>
-				</table> 
+
+							<button class="standardBtn col-2" type="button" onclick="SetPlayers(1); appendColumn(); ShowGameDiv()">1 Player</button>
 			
+							<button class="standardBtn col-2" type="button" onclick="SetPlayers(2); appendColumn(); ShowGameDiv()">2 Player</button>
+
+							<button class="standardBtn col-2" type="button" onclick="SetPlayers(3); appendColumn(); ShowGameDiv()">3 Player</button>
+
+							<button class="standardBtn col-2" type="button" onclick="SetPlayers(4); appendColumn(); ShowGameDiv()">4 Player</button>
+
 			</div>	
 			<div id="divGame" style="display:none">
 			
