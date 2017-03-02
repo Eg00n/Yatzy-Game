@@ -1,166 +1,190 @@
 [class*="col-"] {
     width: 100%;
 }
+
 @media only screen and (min-width: 768px) {
     /* For desktop: */
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
+    .col-1 {
+        width: 8.33%;
+    }
+
+    .col-2 {
+        width: 16.66%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.33%;
+    }
+
+    .col-5 {
+        width: 41.66%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-7 {
+        width: 58.33%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-10 {
+        width: 83.33%;
+    }
+
+    .col-11 {
+        width: 91.66%;
+    }
+
+    .col-12 {
+        width: 100%;
+    }
 }
 
 [class*="colBtn-"] {
     width: 75%;
 }
+
 @media only screen and (min-width: 768px) {
-	.colBtn-Standard {width:10%}
+    .colBtn-Standard {
+        width: 10%;
+    }
 }
 
 
-div.Header{
-	background-color:blue; 
-	position:relative;
-	border: 5px solid gray;
-}
-div.boardDiv{
-	background-color:white;
-	position:relative;
-	border: 5px solid gray;
-	height: 700px;
-	margin:auto;
-	text-align: center;
-	font-family: courier;
+div.Header {
+    background-color: blue;
+    position: relative;
+    border: 5px solid gray;
 }
 
-#divMenu{
-	background-color:white;
-	position:relative;
-	border: 5px solid gray;
-	height: 700px;
-	margin:auto;
-	text-align: center;
+div.boardDiv {
+    background-color: white;
+    position: relative;
+    bottom: 5px;
+    border: 5px solid gray;
+    height: 700px;
+    margin: auto;
+    text-align: center;
+    font-family: courier;
 }
-#divPlayerDisplay{
-	background-color: #f2f2f2;
-	border: 5px solid white;
-	
-	position:absolute;
-	
-	font-size:26px;
-	
-	width:70%;
-	height:15%;
-	
-	text-align: center;
-	
-}
-#divGameScreen{
-	background-color: #f2f2f2;
-	border: 5px solid white;
-	
-	position:absolute;
-	bottom:0;
-		
-	width:70%;
-	height:83%;
 
-	
-	margin: auto;
-	text-align: center;
-	
+#divMenu {
+    background-color: white;
+    position: relative;
+    border: 5px solid gray;
+    height: 700px;
+    margin: auto;
+    text-align: center;
 }
-#divScoreBoard{
-	border: 5px solid white;
-	float: right;
-	width:29%; 
-	height:98%;
-	
-		
-	min-width:355px;
-	
-	right:0px; 
-	background-color:#f2f2f2;
-	margin: auto;
-	text-align: center;	
+
+#divPlayerDisplay {
+    background-color: #f2f2f2;
+    border: 5px solid white;
+    position: absolute;
+    font-size: 26px;
+    width: 70%;
+    height: 15%;
+    text-align: center;
 }
-#divBottom{
-	position:absolute;
-	bottom:5px;
+
+#divGame {
+    background-color: #f2f2f2;
+    border: 5px solid white;
+    position: absolute;
+    bottom: 0;
+    width: 70%;
+    height: 83%;
+    margin: auto;
+    text-align: center;
 }
-#bottomList{
-	position: absolute;
+
+#divScoreBoard {
+    border: 5px solid white;
+    float: right;
+    width: 29%;
+    height: 98%;
+    min-width: 355px;
+    right: 0px;
+    background-color: #f2f2f2;
+    margin: auto;
+    text-align: center;
+}
+
+#divBottom {
+    position: absolute;
+    bottom: 5px;
+}
+
+#bottomList {
+    position: absolute;
     top: 30%;
     z-index: 2;
-    width:400px;
-    margin-left:-200px;
-    left:50%;
+    width: 400px;
+    margin-left: -200px;
+    left: 50%;
 }
 
-div.DiceList{	
-	float: center;
-	
-	margin: 10px auto;
+div.DiceList {
+    margin: 10px auto;
 }
 
-div.Die{
-	float:center;
-	
-	height:30px;
-	width:30px;
-	
-	border:16px solid #f2f2f2;
-	
-	background:#ffffff;
-	border-radius:25px;
-	text-align:center;
-	padding:30px;
-	
-	font-size:32px;
-	font-weight:bold;
-	
-	display:inline-block;
+div.Die {
+    height: 30px;
+    width: 30px;
+    border: 16px solid #f2f2f2;
+    background: #ffffff;
+    border-radius: 25px;
+    text-align: center;
+    padding: 30px;
+    font-size: 32px;
+    font-weight: bold;
+    display: inline-block;
 }
 
 
 
-div.CheckedDie{
-	background:#a6a6a6
+div.CheckedDie {
+    background: #a6a6a6;
 }
 
-button.ChoiceBtn{
-	width: 100%;
-	height: 35px;
-	font-family: courier;
-	font-weight: bold;
+button.ChoiceBtn {
+    width: 100%;
+    height: 35px;
+    font-family: courier;
+    font-weight: bold;
 }
 
-button.standardBtn{
-	position: relative;
-	height:45px;
-		
-	border: 3px solid white;
-	font-size:16px;
-	font-family: courier;
-	
-	padding: 15px;
-	display:inline-block;
+button.standardBtn {
+    position: relative;
+    height: 45px;
+    border: 3px solid white;
+    font-size: 16px;
+    font-family: courier;
+    padding: 15px;
+    display: inline-block;
 }
 
 
-#scoreBoard{
-	width: 100%;
-	border: 5px solid #f2f2f2;
-	border-collapse: collapse;
+#scoreBoard {
+    width: 100%;
+    border: 5px solid #f2f2f2;
+    border-collapse: collapse;
 }
-td.tdScoreBoard{
-	order: 1px solid black;
-	border-collapse: collapse;
+
+td.tdScoreBoard {
+    border: 1px solid black;
+    border-collapse: collapse;
 }
