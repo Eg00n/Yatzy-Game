@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<header>
+		<title>Yatzy Game</title>
+		<link rel="stylesheet" type="text/css" href="site.css"> </link>
+		<script src="yatzyJavascript.js"> </script>
+		</header>
+	
+	<body style="background-color:gray">
+			
+		<div class="Header col-12">
+			<h1 style="text-align:center; font-family: courier;" >Yatzy Game</h1>
+		</div>
+		
+		<div class="boardDiv col-12">
+			<div  id="divMenu" style="display:block">
+			
+				<button class="standardBtn colBtn-Standard" type="button" onclick="ShowAmountOfPlayersDiv()">Start Game</button>
+				<button class="standardBtn colBtn-Standard" type="button" onclick="ShowHighScoreDiv()">High score</button>
+				<button class="standardBtn colBtn-Standard" type="button" onclick="ShowLoginDiv()">Login</button>
+			</div> 
+			
+			<div id="DivAmountOfPlayers" style="display:none"> 
+			
+
+							<button class="standardBtn col-2" type="button" onclick="SetPlayers(1); appendColumn(); ShowGameDiv()">1 Player</button>
+			
+							<button class="standardBtn col-2" type="button" onclick="SetPlayers(2); appendColumn(); ShowGameDiv()">2 Player</button>
+
+							<button class="standardBtn col-2" type="button" onclick="SetPlayers(3); appendColumn(); ShowGameDiv()">3 Player</button>
+
+							<button class="standardBtn col-2" type="button" onclick="SetPlayers(4); appendColumn(); ShowGameDiv()">4 Player</button>
+
+			</div>	
+			<div id="divGame" style="display:none">
+			
+				<div id="divPlayerDisplay">
+					<p>Player <span id="currentPlayer">-</span>'s turn.</p>
+				</div>
+				
+				<div id="divGameScreen">
+					
+					<p id="message"> - </p>
+					
+					
+					<div class="diceList">
+						<div id="die1" class="Die" onclick="checkDie('die1')">0</div>
+						<div id="die2" class="Die" onclick="checkDie('die2')">0</div>
+						<div id="die3" class="Die" onclick="checkDie('die3')">0</div>
+						<div id="die4" class="Die" onclick="checkDie('die4')">0</div>
+						<div id="die5" class="Die" onclick="checkDie('die5')">0</div>
+					</div>
+					
+					<button class="standardBtn" type="button" onclick="RollDice()">Roll dice</button>
+				
+				</div>
+					
+				<div id="divScoreBoard">
+				<table id="scoreBoard">
+						<tr>
+						<th> - </th>
+
+						</tr>
+						<tr>
+							<td>
+								<button id="c1" class="ChoiceBtn" onclick="checkForEyes(1)">1</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="c2" class="ChoiceBtn" onclick="checkForEyes(2)">2</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="c3" class="ChoiceBtn" onclick="checkForEyes(3)">3</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="c4" class="ChoiceBtn" onclick="checkForEyes(4)">4</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="c5" class="ChoiceBtn" onclick="checkForEyes(5)">5</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="c6" class="ChoiceBtn" onclick="checkForEyes(6)">6</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p id="cSum">Sum</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p id="cBonus">Bonus</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="cOnePair" class="ChoiceBtn" onclick="checkForOnePair()">One Pair</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="cTwoPair" class="ChoiceBtn" onclick="checkForTwoPair()">Two Pair</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="cThreeOfAKind" class="ChoiceBtn" onclick="checkForThreeOfAKind()">Three of a kind</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="cFourOfAKind" class="ChoiceBtn" onclick="checkForFourOfAKind()">Four of a kind</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="cLow" class="ChoiceBtn" onclick="checkForLow()">Low</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="cHigh" class="ChoiceBtn" onclick="checkForHigh()">High</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="cHouse" class="ChoiceBtn" onclick="checkForHouse()">House</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="cChance" class="ChoiceBtn" onclick="checkForChance()">Chance</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="cYatzy" class="ChoiceBtn" onclick="checkForYatzy()">Yatzy</button>
+							</td>
+						</tr>
+						<tr>
+							<td>I alt</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+			<div id="divHighScore" class="boardElement" style="display:none">
+			</div>
+		
+			<div id="divLogin" class="boardElement" style="display:none">
+			</div>
+		</div>	
+	</body>
+</html>
