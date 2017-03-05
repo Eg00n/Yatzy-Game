@@ -7,6 +7,42 @@ namespace yatzy.Models
 {
     public class YatzyGame
     {
+        public void StartGame(int amountOfPlayers)
+        {
+            PlayerList = new List<YatzyPlayer>();
+
+            SetAmountOfPlayers(amountOfPlayers);
+            currentPlayer = 1;
+        }
+
+
+        //-- Player functions
+
+        int amountOfPlayers = 0;
+        int currentPlayer = 0;
+
+        List<YatzyPlayer> PlayerList;
+
+        public void SetAmountOfPlayers(int amount)
+        {
+            amountOfPlayers = amount;
+            for (int i = 0; i < amount; i++)
+            {
+                PlayerList.Add(new YatzyPlayer(i, 0));
+            }
+
+        }
+        public void NextPlayer(int currentPlayer)
+        {
+            if(currentPlayer==PlayerList.Count())
+            {
+                currentPlayer = 1;
+            }else
+            {
+            currentPlayer++;
+            }
+        }
+
 
         //-- dice functions
         int rollCounter = 0;
@@ -60,16 +96,90 @@ namespace yatzy.Models
             return DiceList;
         }
 
-        public void StartCheck(int row)
+        public string StartCheck(int row, int currentPlayer)
         {
-            switch (row)
+            //check any rolls 
+            if (rollCounter != 0)
             {
-                case 1:
+                //check table for choosen field
+                if (CheckTable(currentPlayer, row)==true)
+                {
 
-                    break;
 
+                    //check eyes conditions, takes row as parameter to switch
+                    #region
+
+                    int points = 0;
+                switch (row)
+                {
+                    case 1:
+                        points = CheckForEyes(row);
+                        break;
+                    case 2:
+                        points = CheckForEyes(row);
+                        break;
+                    case 3:
+                        points = CheckForEyes(row);
+                        break;
+                    case 4:
+                        points = CheckForEyes(row);
+                        break;
+                    case 5:
+                        points = CheckForEyes(row);
+                        break;
+                    case 6:
+                        points = CheckForEyes(row);
+                        break;
+                    case 7:
+                        points = checkForOnePair(row);
+                        break;
+                    case 8:
+                        points = checkForTwoPair(row);
+                        break;
+                    case 9:
+                        points = checkForThreeOfAKind(row);
+                        break;
+                    case 10:
+                        points = checkForFourOfAKind(row);
+                        break;
+                    case 11:
+                        points = checkForLow(row);
+                        break;
+                    case 12:
+                        points = checkForHigh(row);
+                        break;
+                    case 13:
+                        points = checkForHouse(row);
+                        break;
+                    case 14:
+                        points = checkForChance(row);
+                        break;
+                    case 15:
+                        points = checkForYatzy(row);
+                        break;
+                }
+                    #endregion
+
+
+
+                }
+                else
+                {
+                    return ("You can't place point here!");
+                }
+            }
+            else
+            {
+                return ("Roll first!");
             }
         }
+
+        public bool CheckTable(int currentPlayer, int rowToCheck)
+        {
+
+
+        }
+
         //-- Checks
         public void Check(int row, int pointSum)
         {
@@ -286,7 +396,7 @@ namespace yatzy.Models
         {
             if (checkList[1] == checkList[2] && checkList[2] == checkList[3] && checkList[3] == checkList[4] && checkList[4] == checkList[5])
             {
-                return checkList.Sum();
+                return 50;
             }
             else
             {

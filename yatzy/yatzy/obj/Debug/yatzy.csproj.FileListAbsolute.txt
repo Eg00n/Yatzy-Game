@@ -75,3 +75,4 @@ C:\Users\Jespe\OneDrive\Dokumenter\Git\Yatzy Game\yatzy\yatzy\bin\System.Web.Htt
 C:\Users\Jespe\OneDrive\Dokumenter\Git\Yatzy Game\yatzy\yatzy\obj\Debug\yatzy.csprojResolveAssemblyReference.cache
 C:\Users\Jespe\OneDrive\Dokumenter\Git\Yatzy Game\yatzy\yatzy\obj\Debug\yatzy.dll
 C:\Users\Jespe\OneDrive\Dokumenter\Git\Yatzy Game\yatzy\yatzy\obj\Debug\yatzy.pdb
+C:\Users\Jakob\Documents\Yatzy-Game\yatzy\yatzy\obj\Debug\yatzy.csprojResolveAssemblyReference.cache
