@@ -10,7 +10,7 @@ namespace yatzy.Models
         public int Number { get; set; }
         public int Points { get; set; }
 
-        int[] PlayerPointList;
+        public int[] PlayerPointList;
 
         public YatzyPlayer(int number, int points)
         {

@@ -15,9 +15,6 @@ namespace yatzy.Models
             currentPlayer = 1;
         }
 
-
-        //-- Player functions
-
         int amountOfPlayers = 0;
         int currentPlayer = 0;
 
@@ -34,24 +31,22 @@ namespace yatzy.Models
         }
         public void NextPlayer(int currentPlayer)
         {
-            if(currentPlayer==PlayerList.Count())
+            if (currentPlayer == PlayerList.Count())
             {
                 currentPlayer = 1;
-            }else
+            }
+            else
             {
-            currentPlayer++;
+                currentPlayer++;
             }
         }
 
-
-        //-- dice functions
         int rollCounter = 0;
 
         Random rng = new Random();
 
         Die[] DiceList = new Die[5] { new Die(0, false), new Die(0, false), new Die(0, false), new Die(0, false), new Die(0, false) };
         int[] checkList = new int[5] { 0, 0, 0, 0, 0 };
-
 
         public Die[] RollDice(Die die1, Die die2, Die die3, Die die4, Die die5)
         {
@@ -95,73 +90,83 @@ namespace yatzy.Models
 
             return DiceList;
         }
-
         public string StartCheck(int row, int currentPlayer)
         {
+            int checkForZeroPointsCounter = 0;
+            int rowToPlaceZeroIn = 0;
             //check any rolls 
             if (rollCounter != 0)
             {
                 //check table for choosen field
-                if (CheckTable(currentPlayer, row)==true)
+                if (CheckTable(currentPlayer, row) == true)
                 {
-
-
                     //check eyes conditions, takes row as parameter to switch
                     #region
 
                     int points = 0;
-                switch (row)
-                {
-                    case 1:
-                        points = CheckForEyes(row);
-                        break;
-                    case 2:
-                        points = CheckForEyes(row);
-                        break;
-                    case 3:
-                        points = CheckForEyes(row);
-                        break;
-                    case 4:
-                        points = CheckForEyes(row);
-                        break;
-                    case 5:
-                        points = CheckForEyes(row);
-                        break;
-                    case 6:
-                        points = CheckForEyes(row);
-                        break;
-                    case 7:
-                        points = checkForOnePair(row);
-                        break;
-                    case 8:
-                        points = checkForTwoPair(row);
-                        break;
-                    case 9:
-                        points = checkForThreeOfAKind(row);
-                        break;
-                    case 10:
-                        points = checkForFourOfAKind(row);
-                        break;
-                    case 11:
-                        points = checkForLow(row);
-                        break;
-                    case 12:
-                        points = checkForHigh(row);
-                        break;
-                    case 13:
-                        points = checkForHouse(row);
-                        break;
-                    case 14:
-                        points = checkForChance(row);
-                        break;
-                    case 15:
-                        points = checkForYatzy(row);
-                        break;
-                }
+                    switch (row)
+                    {
+                        case 1:
+                            points = CheckForEyes(row);
+                            break;
+                        case 2:
+                            points = CheckForEyes(row);
+                            break;
+                        case 3:
+                            points = CheckForEyes(row);
+                            break;
+                        case 4:
+                            points = CheckForEyes(row);
+                            break;
+                        case 5:
+                            points = CheckForEyes(row);
+                            break;
+                        case 6:
+                            points = CheckForEyes(row);
+                            break;
+                        case 7:
+                            points = checkForOnePair(row);
+                            break;
+                        case 8:
+                            points = checkForTwoPair(row);
+                            break;
+                        case 9:
+                            points = checkForThreeOfAKind(row);
+                            break;
+                        case 10:
+                            points = checkForFourOfAKind(row);
+                            break;
+                        case 11:
+                            points = checkForLow(row);
+                            break;
+                        case 12:
+                            points = checkForHigh(row);
+                            break;
+                        case 13:
+                            points = checkForHouse(row);
+                            break;
+                        case 14:
+                            points = checkForChance(row);
+                            break;
+                        case 15:
+                            points = checkForYatzy(row);
+                            break;
+                    }
                     #endregion
-
-
-
+                    if (points == 0)
+                    {
+                        if (checkForZeroPointsCounter == 1 && row == rowToPlaceZeroIn)
+                        {
+                            PlacePoints(currentPlayer, row, 0);
+                        }
+                        checkForZeroPointsCounter++;
+                        rowToPlaceZeroIn = row;
+                        return ("Are you sure to place 0 point here? Click again");
+                    }
+                    else
+                    {
+                        PlacePoints(currentPlayer, row, points);
+                    }
                 }
                 else
                 {
@@ -172,53 +177,35 @@ namespace yatzy.Models
             {
                 return ("Roll first!");
             }
+            return null;
         }
-
         public bool CheckTable(int currentPlayer, int rowToCheck)
         {
 
-
-        }
-
-        //-- Checks
-        public void Check(int row, int pointSum)
-        {
-            if (rollCounter != 0)
+            foreach (YatzyPlayer player in PlayerList)
             {
-                //checks if points is already given for field
-                if (GetPointsFromSingleRowInTable(currentPlayer, row) == 0)
+                if (player.Number == currentPlayer)
                 {
-
-                    //checks for any checked dice
-                    if (pointSum == 0)
+                    if (player.PlayerPointList[rowToCheck] == 0)
                     {
-                        //checks for zero points confirmation
-                        if (ZeroPointConfirmed == 1 && ZeroPointChoiceConfirmed == row)
-                        {
-                            addPointsToTable(pointSum, currentPlayer, row);
-                            EndTurn();
-                        }
-                        else
-                        {
-                            document.getElementById("message").innerHTML = "Are you sure you want to commit 0 points? <br>- Click choice again if you are";
-                            ZeroPointConfirmed++;
-                            ZeroPointChoiceConfirmed = row;
-                        }
+                        return true;
                     }
                     else
                     {
-                        addPointsToTable(pointSum, currentPlayer, row);
-                        EndTurn();
+                        return false;
                     }
                 }
-                else
-                {
-                    document.getElementById("message").innerHTML = "You can't add points to this field";
-                }
             }
-            else
+            return false;
+        }
+        public void PlacePoints(int currentPlayer, int row, int points)
+        {
+            foreach (YatzyPlayer player in PlayerList)
             {
-                document.getElementById("message").innerHTML = "You have to roll first!";
+                if (player.Number==currentPlayer)
+                {
+                    player.PlayerPointList[row] = points;
+                }
             }
         }
         public int CheckForEyes(int row)
@@ -245,8 +232,7 @@ namespace yatzy.Models
             {
                 pointSum = pointSum + DiceList[5].Eyes;
             }
-            Check(row, pointSum);
-
+           
             return pointSum;
         }
         public int checkForOnePair(int row)
