@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace yatzy.Models
 {
@@ -41,45 +42,53 @@ namespace yatzy.Models
             }
         }
 
+        //public Die[] ConvertStringToDiceList(string value)
+        //{
+        //    Die[] tempDiceList = JsonConvert.DeserializeObject<Die[]>(value);
+        //    var jsonInput = value;
+        //    return tempDiceList;
+            
+        //}
+
         int rollCounter = 0;
 
         Random rng = new Random();
 
-        Die[] DiceList = new Die[5] { new Die(0, false), new Die(0, false), new Die(0, false), new Die(0, false), new Die(0, false) };
+        public Die[] DiceList = new Die[5] { new Die(0, false), new Die( 0, false), new Die(0, false), new Die(0, false), new Die(0, false) };
         int[] checkList = new int[5] { 0, 0, 0, 0, 0 };
 
-        public Die[] RollDice(Die die1, Die die2, Die die3, Die die4, Die die5)
+        public Die[] RollDice(Die[] newDiceList)
         {
             if (rollCounter <= 2)
             {
-                if (die1.Checked == false)
+                if (newDiceList[0].Checked == false)
                 {
-                    die1.Eyes = rng.Next(1, 6);
-                    DiceList[1] = die1;
+                    newDiceList[0].Eyes = rng.Next(1, 6);
+                    DiceList[1] = newDiceList[0];
                     checkList[1] = DiceList[1].Eyes;
                 }
-                if (die2.Checked == false)
+                if (newDiceList[1].Checked == false)
                 {
-                    die2.Eyes = rng.Next(1, 6);
-                    DiceList[2] = die2;
+                    newDiceList[1].Eyes = rng.Next(1, 6);
+                    DiceList[2] = newDiceList[1];
                     checkList[2] = DiceList[2].Eyes;
                 }
-                if (die3.Checked == false)
+                if (newDiceList[2].Checked == false)
                 {
-                    die3.Eyes = rng.Next(1, 6);
-                    DiceList[3] = die3;
+                    newDiceList[2].Eyes = rng.Next(1, 6);
+                    DiceList[3] = newDiceList[2];
                     checkList[3] = DiceList[3].Eyes;
                 }
-                if (die4.Checked == false)
+                if (newDiceList[3].Checked == false)
                 {
-                    die4.Eyes = rng.Next(1, 6);
-                    DiceList[4] = die4;
+                    newDiceList[3].Eyes = rng.Next(1, 6);
+                    DiceList[4] = newDiceList[3];
                     checkList[4] = DiceList[4].Eyes;
                 }
-                if (die5.Checked == false)
+                if (newDiceList[4].Checked == false)
                 {
-                    die5.Eyes = rng.Next(1, 6);
-                    DiceList[5] = die5;
+                    newDiceList[4].Eyes = rng.Next(1, 6);
+                    DiceList[5] = newDiceList[4];
                     checkList[5] = DiceList[5].Eyes;
                 }
                 ++rollCounter;

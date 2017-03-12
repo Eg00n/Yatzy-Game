@@ -5,23 +5,37 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using yatzy.Models;
+using Newtonsoft.Json;
+//using System.Web.Mvc;
 
 namespace yatzy.Controllers
 {
     public class YatzyGameController : ApiController
     {
-        YatzyGame newGame;
+        YatzyGame newGame = new YatzyGame();
         public YatzyGameController() { }
         public YatzyGameController(int amountOfPlayers)
         {
-            newGame = new YatzyGame();
+            //newGame = new YatzyGame();
             newGame.StartGame(amountOfPlayers);
         }
 
-        // GET: api/YatzyGame/5
-        public Die[] rollDice([FromBody] Die die1, Die die2, Die die3, Die die4, Die die5)
+        [HttpGet]
+        public Die[] rollDice()
         {
-            return newGame.RollDice(die1, die2, die3, die4, die5);
+            return (newGame.DiceList);
+        }
+        [HttpPost]
+        public Die[] rollDice(Die[] value)
+        {
+            try
+            {
+                return newGame.RollDice(value);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // POST: api/YatzyGame
