@@ -55,41 +55,45 @@ namespace yatzy.Models
         Random rng = new Random();
 
         public Die[] DiceList = new Die[5] { new Die(0, false), new Die( 0, false), new Die(0, false), new Die(0, false), new Die(0, false) };
-        int[] checkList = new int[5] { 0, 0, 0, 0, 0 };
+        int[] checkList = new int[5] { 6, 6, 6, 6, 6 };
 
         public Die[] RollDice(Die[] newDiceList)
         {
+            if (newDiceList == null)
+            {
+                return DiceList;
+            }
             if (rollCounter <= 2)
             {
                 if (newDiceList[0].Checked == false)
                 {
-                    newDiceList[0].Eyes = rng.Next(1, 6);
-                    DiceList[1] = newDiceList[0];
-                    checkList[1] = DiceList[1].Eyes;
+                    newDiceList[0].Eyes = rng.Next(1, 7);
+                    DiceList[0] = newDiceList[0];
+                    checkList[0] = DiceList[0].Eyes;
                 }
                 if (newDiceList[1].Checked == false)
                 {
-                    newDiceList[1].Eyes = rng.Next(1, 6);
-                    DiceList[2] = newDiceList[1];
-                    checkList[2] = DiceList[2].Eyes;
+                    newDiceList[1].Eyes = rng.Next(1, 7);
+                    DiceList[1] = newDiceList[1];
+                    checkList[1] = DiceList[1].Eyes;
                 }
                 if (newDiceList[2].Checked == false)
                 {
-                    newDiceList[2].Eyes = rng.Next(1, 6);
-                    DiceList[3] = newDiceList[2];
-                    checkList[3] = DiceList[3].Eyes;
+                    newDiceList[2].Eyes = rng.Next(1, 7);
+                    DiceList[2] = newDiceList[2];
+                    checkList[2] = DiceList[2].Eyes;
                 }
                 if (newDiceList[3].Checked == false)
                 {
-                    newDiceList[3].Eyes = rng.Next(1, 6);
-                    DiceList[4] = newDiceList[3];
-                    checkList[4] = DiceList[4].Eyes;
+                    newDiceList[3].Eyes = rng.Next(1, 7);
+                    DiceList[3] = newDiceList[3];
+                    checkList[3] = DiceList[3].Eyes;
                 }
                 if (newDiceList[4].Checked == false)
                 {
-                    newDiceList[4].Eyes = rng.Next(1, 6);
-                    DiceList[5] = newDiceList[4];
-                    checkList[5] = DiceList[5].Eyes;
+                    newDiceList[4].Eyes = rng.Next(1, 7);
+                    DiceList[4] = newDiceList[4];
+                    checkList[4] = DiceList[4].Eyes;
                 }
                 ++rollCounter;
             }

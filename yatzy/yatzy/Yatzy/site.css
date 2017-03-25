@@ -105,14 +105,10 @@ div.boardDiv{
 }
 
 div.DiceList{	
-	float: center;
-	
 	margin: 10px auto;
 }
 
 div.Die{
-	float:center;
-	
 	height:30px;
 	width:30px;
 	
