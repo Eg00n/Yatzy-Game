@@ -26,13 +26,13 @@
 			<div id="DivAmountOfPlayers" style="display:none"> 
 			
 
-							<button class="standardBtn col-2" type="button" onclick="SetPlayers(1); appendColumn(); ShowGameDiv()">1 Player</button>
+							<button class="standardBtn col-2" type="button" onclick="StartGame(1)">1 Player</button>
 			
-							<button class="standardBtn col-2" type="button" onclick="SetPlayers(2); appendColumn(); ShowGameDiv()">2 Player</button>
+							<button class="standardBtn col-2" type="button" onclick="StartGame(2)">2 Player</button>
 
-							<button class="standardBtn col-2" type="button" onclick="SetPlayers(3); appendColumn(); ShowGameDiv()">3 Player</button>
+							<button class="standardBtn col-2" type="button" onclick="StartGame(3)">3 Player</button>
 
-							<button class="standardBtn col-2" type="button" onclick="SetPlayers(4); appendColumn(); ShowGameDiv()">4 Player</button>
+							<button class="standardBtn col-2" type="button" onclick="StartGame(4)">4 Player</button>
 
 			</div>	
 			<div id="divGame" style="display:none">
@@ -44,7 +44,7 @@
 				<div id="divGameScreen">
 					
 					<p id="message"> - </p>
-					
+                    <p id="amountOfRolls"> 0 </p>
 					
 					<div class="diceList">
 						<div id="die1" class="Die" onclick="checkDie('die1')">0</div>

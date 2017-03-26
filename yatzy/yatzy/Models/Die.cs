@@ -6,12 +6,9 @@ using System.Web;
 
 namespace yatzy.Models
 {
-    [DataContract]
     public class Die
     {
-        [DataMember]
         public int Eyes { get; set; }
-        [DataMember]
         public bool Checked { get; set; }
 
         public Die(int eyes, bool @checked)

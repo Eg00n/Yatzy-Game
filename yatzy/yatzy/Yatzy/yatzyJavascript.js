@@ -3,7 +3,30 @@ function ShowAmountOfPlayersDiv() {
     document.getElementById("DivAmountOfPlayers").style.display = "block";
     document.getElementById("divMenu").style.display = "none";
 }
-function ShowGameDiv() {
+function StartGame(amountOfPlayers) {
+    //start gamesession of serverside
+    $(document).ready(function () {
+        $.ajax({
+            url: 'http://localhost:22090/api/yatzyGame/rollDice',
+            contentType: 'application/json',
+            dataType: 'json',
+            type: 'POST',
+            data: JSON.stringify(amountOfPlayers),
+            success: function (data, status) {
+
+
+            },
+            error: function (errMsg) { alert(errMsg + " - Error, couldn't contact Server..."); }
+        });
+
+        $(".diceList > div").css("background", "#ffffff;");
+
+    });
+
+    SetPlayers(amountOfPlayers);  
+    appendColumn();
+
+    //Change View
     document.getElementById("divGame").style.display = "block";
     document.getElementById("DivAmountOfPlayers").style.display = "none";
 }
@@ -22,21 +45,10 @@ var die5 = { "eyes": 4, "checked": false };
 
 var diceList = [die1, die2, die3, die4, die5];
 
-//var markers = {
-//    "markers": [
-//        { "position": "128.3657142857143", "markerPosition": "7" },
-//        { "position": "235.1944023323615", "markerPosition": "19" },
-//        { "position": "42.5978231292517", "markerPosition": "-3" }
-//    ]
-//};
-// var diceList = [die1, die2, die3, die4, die5];
 
 function RollDice() {
-  
-    //JSON.stringify(diceList);
-
+      
     $(document).ready(function () {
-        //    $("#die1").hide();
        //    $(".diceList > div").css("background", "#ffe6e6");
 
         $.ajax({
@@ -52,47 +64,25 @@ function RollDice() {
                 document.getElementById("die3").innerHTML = data[2].Eyes;
                 document.getElementById("die4").innerHTML = data[3].Eyes;
                 document.getElementById("die5").innerHTML = data[4].Eyes;
+
+                document.getElementById('amountOfRolls').innerHTML = data.rollCounter;
             },
             error: function (errMsg) { alert(errMsg + " - Error, couldn't contact Server..."); }
         });
 
-
-
-        //$.ajax({
-        //    //url: 'http://localhost:22090/api/yatzyGame/rollDice',
-        //    url: '../api/YatzyGame/rollDice',
-        //    type: 'POST',
-        //    contentType: 'application/json; charset=utf-8',
-        //    success: function (diceList) {
-        //        document.getElementById("message").innerHTML = diceList;
-
-        //        diceList[1].eyes = document.getElementById("die1");
-        //        diceList[2].eyes = document.getElementById("die2");
-        //        diceList[3].eyes = document.getElementById("die3");
-        //        diceList[4].eyes = document.getElementById("die4");
-        //        diceList[5].eyes = document.getElementById("die5");
-        //    }
-        //});
-
         $(".diceList > div").css("background", "#ffffff;");
 
     });
-
-
-
-    //var xhttp = new XMLHttpRequest();
-    //xhttp.onreadystatechange = function (data) {
-    //    if (this.readyState == 4 && this.status == 200) {
-
-    //    }
-    //};
-    //xhttp.open("POST", "  ", true);
-    //xhttp.send();
-    //    })
 }
 
-
 function checkDie(id) {
+
+    $(document).ready(function(){
+
+        $(id).addClass(' CheckedDie');
+
+    })
+
     if (rollCount != 0) {
         if (document.getElementById(id).className == "Die CheckedDie")
             document.getElementById(id).className = "Die";

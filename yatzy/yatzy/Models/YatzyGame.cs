@@ -50,12 +50,12 @@ namespace yatzy.Models
             
         //}
 
-        int rollCounter = 0;
+        public int rollCounter = 0;
 
         Random rng = new Random();
 
         public Die[] DiceList = new Die[5] { new Die(0, false), new Die( 0, false), new Die(0, false), new Die(0, false), new Die(0, false) };
-        int[] checkList = new int[5] { 6, 6, 6, 6, 6 };
+        int[] CheckList = new int[5] { 6, 6, 6, 6, 6 };
 
         public Die[] RollDice(Die[] newDiceList)
         {
@@ -69,37 +69,37 @@ namespace yatzy.Models
                 {
                     newDiceList[0].Eyes = rng.Next(1, 7);
                     DiceList[0] = newDiceList[0];
-                    checkList[0] = DiceList[0].Eyes;
+                    CheckList[0] = DiceList[0].Eyes;
                 }
                 if (newDiceList[1].Checked == false)
                 {
                     newDiceList[1].Eyes = rng.Next(1, 7);
                     DiceList[1] = newDiceList[1];
-                    checkList[1] = DiceList[1].Eyes;
+                    CheckList[1] = DiceList[1].Eyes;
                 }
                 if (newDiceList[2].Checked == false)
                 {
                     newDiceList[2].Eyes = rng.Next(1, 7);
                     DiceList[2] = newDiceList[2];
-                    checkList[2] = DiceList[2].Eyes;
+                    CheckList[2] = DiceList[2].Eyes;
                 }
                 if (newDiceList[3].Checked == false)
                 {
                     newDiceList[3].Eyes = rng.Next(1, 7);
                     DiceList[3] = newDiceList[3];
-                    checkList[3] = DiceList[3].Eyes;
+                    CheckList[3] = DiceList[3].Eyes;
                 }
                 if (newDiceList[4].Checked == false)
                 {
                     newDiceList[4].Eyes = rng.Next(1, 7);
                     DiceList[4] = newDiceList[4];
-                    checkList[4] = DiceList[4].Eyes;
+                    CheckList[4] = DiceList[4].Eyes;
                 }
                 ++rollCounter;
             }
-
-            Array.Sort(checkList);
-            Array.Reverse(checkList);
+            
+            Array.Sort(CheckList);
+            Array.Reverse(CheckList);
 
             return DiceList;
         }
@@ -138,31 +138,31 @@ namespace yatzy.Models
                             points = CheckForEyes(row);
                             break;
                         case 7:
-                            points = checkForOnePair(row);
+                            points = CheckForOnePair(row);
                             break;
                         case 8:
-                            points = checkForTwoPair(row);
+                            points = CheckForTwoPair(row);
                             break;
                         case 9:
-                            points = checkForThreeOfAKind(row);
+                            points = CheckForThreeOfAKind(row);
                             break;
                         case 10:
-                            points = checkForFourOfAKind(row);
+                            points = CheckForFourOfAKind(row);
                             break;
                         case 11:
-                            points = checkForLow(row);
+                            points = CheckForLow(row);
                             break;
                         case 12:
-                            points = checkForHigh(row);
+                            points = CheckForHigh(row);
                             break;
                         case 13:
-                            points = checkForHouse(row);
+                            points = CheckForHouse(row);
                             break;
                         case 14:
-                            points = checkForChance(row);
+                            points = CheckForChance(row);
                             break;
                         case 15:
-                            points = checkForYatzy(row);
+                            points = CheckForYatzy(row);
                             break;
                     }
                     #endregion
@@ -248,17 +248,17 @@ namespace yatzy.Models
            
             return pointSum;
         }
-        public int checkForOnePair(int row)
+        public int CheckForOnePair(int row)
         {
             int pair;
 
-            for (int i = 0; i < checkList.Count(); i++)
+            for (int i = 0; i < CheckList.Count(); i++)
             {
-                for (int j = i + 1; j < checkList.Count(); j++)
+                for (int j = i + 1; j < CheckList.Count(); j++)
                 {
-                    if (j != i && checkList[j] == checkList[i])
+                    if (j != i && CheckList[j] == CheckList[i])
                     {
-                        pair = checkList[j] + checkList[i];
+                        pair = CheckList[j] + CheckList[i];
                         return pair;
                     }
                 }
@@ -266,20 +266,20 @@ namespace yatzy.Models
 
             return 0;
         }
-        public int checkForTwoPair(int row)
+        public int CheckForTwoPair(int row)
         {
             int pairSum = 0;
             int pair = 0;
             int pairCounter = 0;
 
-            for (int i = 0; i < checkList.Count(); i++)
+            for (int i = 0; i < CheckList.Count(); i++)
             {
-                for (int j = i + 1; j < checkList.Count(); j++)
+                for (int j = i + 1; j < CheckList.Count(); j++)
                 {
-                    if (j != i && checkList[j] == checkList[i] && pair != checkList[i] || pair == 0)
+                    if (j != i && CheckList[j] == CheckList[i] && pair != CheckList[i] || pair == 0)
                     {
-                        pair = checkList[i];
-                        pairSum = pairSum + checkList[i] + checkList[j];
+                        pair = CheckList[i];
+                        pairSum = pairSum + CheckList[i] + CheckList[j];
 
                         pairCounter++;
                         if (pairCounter == 2)
@@ -292,19 +292,19 @@ namespace yatzy.Models
 
             return 0;
         }
-        public int checkForThreeOfAKind(int row)
+        public int CheckForThreeOfAKind(int row)
         {
             int tripleSum = 0;
 
-            for (int i = 0; i < checkList.Count(); i++)
+            for (int i = 0; i < CheckList.Count(); i++)
             {
-                for (int j = i + 1; j < checkList.Count(); j++)
+                for (int j = i + 1; j < CheckList.Count(); j++)
                 {
-                    for (int k = j + 1; k < checkList.Count(); k++)
+                    for (int k = j + 1; k < CheckList.Count(); k++)
                     {
-                        if (j != i && j != k && checkList[j] == checkList[i] && checkList[i] == checkList[k])
+                        if (j != i && j != k && CheckList[j] == CheckList[i] && CheckList[i] == CheckList[k])
                         {
-                            tripleSum = tripleSum + checkList[i] + checkList[j] + checkList[k];
+                            tripleSum = tripleSum + CheckList[i] + CheckList[j] + CheckList[k];
                             return tripleSum;
 
                         }
@@ -313,21 +313,21 @@ namespace yatzy.Models
             }
             return 0;
         }
-        public int checkForFourOfAKind(int row)
+        public int CheckForFourOfAKind(int row)
         {
             int quadSum = 0;
 
-            for (int i = 0; i < checkList.Count(); i++)
+            for (int i = 0; i < CheckList.Count(); i++)
             {
-                for (int j = i + 1; j < checkList.Count(); j++)
+                for (int j = i + 1; j < CheckList.Count(); j++)
                 {
-                    for (int k = j + 1; k < checkList.Count(); k++)
+                    for (int k = j + 1; k < CheckList.Count(); k++)
                     {
-                        for (int l = k + 1; l < checkList.Count(); l++)
+                        for (int l = k + 1; l < CheckList.Count(); l++)
                         {
-                            if (j != i && j != k && k != l && checkList[j] == checkList[i] && checkList[i] == checkList[k] && checkList[k] == checkList[l])
+                            if (j != i && j != k && k != l && CheckList[j] == CheckList[i] && CheckList[i] == CheckList[k] && CheckList[k] == CheckList[l])
                             {
-                                quadSum = quadSum + checkList[i] + checkList[j] + checkList[k] + checkList[l];
+                                quadSum = quadSum + CheckList[i] + CheckList[j] + CheckList[k] + CheckList[l];
                                 return quadSum;
                             }
                         }
@@ -336,9 +336,9 @@ namespace yatzy.Models
             }
             return 0;
         }
-        public int checkForLow(int row)
+        public int CheckForLow(int row)
         {
-            if (checkList.Contains(1) && checkList.Contains(2) && checkList.Contains(3) && checkList.Contains(4) && checkList.Contains(5))
+            if (CheckList.Contains(1) && CheckList.Contains(2) && CheckList.Contains(3) && CheckList.Contains(4) && CheckList.Contains(5))
             {
                 return 15;
             }
@@ -347,9 +347,9 @@ namespace yatzy.Models
                 return 0;
             }
         }
-        public int checkForHigh(int row)
+        public int CheckForHigh(int row)
         {
-            if (checkList.Contains(1) && checkList.Contains(2) && checkList.Contains(3) && checkList.Contains(4) && checkList.Contains(5))
+            if (CheckList.Contains(1) && CheckList.Contains(2) && CheckList.Contains(3) && CheckList.Contains(4) && CheckList.Contains(5))
             {
                 return 15;
             }
@@ -358,25 +358,25 @@ namespace yatzy.Models
                 return 0;
             }
         }
-        public int checkForHouse(int row)
+        public int CheckForHouse(int row)
         {
             int pointSum = 0;
 
-            for (int i = 0; i < checkList.Count(); i++)
+            for (int i = 0; i < CheckList.Count(); i++)
             {
-                for (int j = i + 1; j < checkList.Count(); j++)
+                for (int j = i + 1; j < CheckList.Count(); j++)
                 {
-                    for (int k = j + 1; k < checkList.Count(); k++)
+                    for (int k = j + 1; k < CheckList.Count(); k++)
                     {
-                        if (j != i && j != k && checkList[j] == checkList[i] && checkList[i] == checkList[k])
+                        if (j != i && j != k && CheckList[j] == CheckList[i] && CheckList[i] == CheckList[k])
                         {
-                            for (int l = 0; l < checkList.Count(); l++)
+                            for (int l = 0; l < CheckList.Count(); l++)
                             {
-                                for (int m = l + 1; m < checkList.Count(); m++)
+                                for (int m = l + 1; m < CheckList.Count(); m++)
                                 {
-                                    if (m != l && checkList[m] != checkList[i] && checkList[m] == checkList[i])
+                                    if (m != l && CheckList[m] != CheckList[i] && CheckList[m] == CheckList[i])
                                     {
-                                        pointSum = checkList.Sum();
+                                        pointSum = CheckList.Sum();
                                         return pointSum;
                                     }
                                 }
@@ -387,13 +387,13 @@ namespace yatzy.Models
             }
             return 0;
         }
-        public int checkForChance(int row)
+        public int CheckForChance(int row)
         {
-            return checkList.Sum();
+            return CheckList.Sum();
         }
-        public int checkForYatzy(int row)
+        public int CheckForYatzy(int row)
         {
-            if (checkList[1] == checkList[2] && checkList[2] == checkList[3] && checkList[3] == checkList[4] && checkList[4] == checkList[5])
+            if (CheckList[1] == CheckList[2] && CheckList[2] == CheckList[3] && CheckList[3] == CheckList[4] && CheckList[4] == CheckList[5])
             {
                 return 50;
             }
