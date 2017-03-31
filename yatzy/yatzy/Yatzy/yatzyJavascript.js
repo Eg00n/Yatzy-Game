@@ -77,18 +77,14 @@ function RollDice() {
 
 function checkDie(id) {
 
-    $(document).ready(function(){
+    //$(document).ready(function(){ $(id).addClass(' CheckedDie');})
 
-        $(id).addClass(' CheckedDie');
-
-    })
-
-    if (rollCount != 0) {
+  
         if (document.getElementById(id).className == "Die CheckedDie")
             document.getElementById(id).className = "Die";
         else if (document.getElementById(id).className == "Die")
             document.getElementById(id).className += " CheckedDie";
-    }
+    
 }
 
 
